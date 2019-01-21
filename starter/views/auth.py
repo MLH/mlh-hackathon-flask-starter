@@ -13,10 +13,19 @@ from starter.settings import GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
 
 blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
-github_oauth_url = 'https://github.com/login/oauth/authorize?client_id={}&client_secret={}'.format(
+github_oauth_url = 'https://github.com/login/oauth/authorize?client_id={}&client_secret={}&scope={}'.format(
     GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET,
+    'public_repo'
 )
+
+@blueprint.route('/login')
+def login():
+    return render_template('auth/login.html')
+
+@blueprint.route('/register')
+def register():
+    return render_template('auth/register.html')
 
 @blueprint.route('/github/login')
 def githubLogin():
@@ -25,7 +34,6 @@ def githubLogin():
 @blueprint.route('/github/register')
 def githubRegister():
     return redirect(github_oauth_url)
-
 
 @blueprint.route('/github/callback', methods=('GET', 'POST'))
 def githubCallback():

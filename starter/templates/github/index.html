@@ -13,7 +13,7 @@
 {% block content %}
 <div class="container py-5">
   <div class="d-flex justify-content-between align-items-end">
-    <h5 class="m-0">Trending Repos</h5>
+    <h5 class="m-0">Starred Repos</h5>
     <form action="{{ url_for('github.search') }}" method="get" class="d-flex">
       <input
         name="query"
@@ -37,21 +37,34 @@
             <a href="{{ item['html_url'] }}">
               {{ item['owner']['login'] }} / <b>{{ item['name'] }}</b>
             </a>
-            <small class="text-muted">{{ item['description'] }}</small>
+            <small class="text-muted">
+              {{ item['description'] }}
+            </small>
             <div class="d-flex mt-2 align-items-center">
               <small class="text-muted mr-3 d-flex align-items-center">
                 {{ item['language'] }}
               </small>
-              <small class="text-muted mr-3"
-                >{{ item['stargazers_count'] }} Stars</small
-              >
-              <small class="text-muted mr-3">{{ item['forks_count'] }} Forks</small>
+              <small class="text-muted mr-3">
+                {{ item['stargazers_count'] }} Stars
+              </small>
+              <small class="text-muted mr-3">
+                {{ item['forks_count'] }} Forks
+              </small>
             </div>
           {% endif %}
         </div>
-        <form action="{{ url_for('github.star') }}" method="POST">
-          <button class="btn btn-outline-dark btn-sm">Star</button>
-        </form>
+        {% if g.user %}
+          <form action="{{ url_for('github.star') }}" method="POST">
+            <button
+              name="full_name"
+              class="btn btn-outline-dark btn-sm"
+              value="{{ item['full_name'] }}"
+              type="submit"
+            >
+              Unstar
+            </button>
+          </form>
+        {% endif %}
       </div>
       <hr />
     </div>
