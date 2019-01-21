@@ -1,8 +1,9 @@
 import os
 
 from flask import Flask, render_template
+
 from starter import settings, controllers, models
-from starter.database import db
+from starter.extensions import db
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 

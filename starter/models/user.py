@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 from starter.database import db
 from starter.services.github import GitHub
+=======
+from starter.extensions import db
+
+>>>>>>> Add support for user models
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -13,6 +18,7 @@ class User(db.Model):
         self.username = username
         self.avatar_url = avatar_url
         self.github_id = github_id
+<<<<<<< HEAD
 
     def find_or_create_from_token(access_token):
         data = GitHub.get_user_from_token(access_token)
@@ -26,6 +32,8 @@ class User(db.Model):
             db.session.commit()
 
         return instance
+=======
+>>>>>>> Add support for user models
 
     def __repr__(self):
         return "<User: {}>".format(self.username)
