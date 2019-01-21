@@ -2,12 +2,17 @@
   <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
     <div class="d-flex align-items-center">
       <a href="/" class="text-decoration-none text-dark">
-        <h1 class="h5 m-0"><span>✨</span> Project Name</h1>
+        <h1 class="h5 m-0">Project Name</h1>
       </a>
-      <a class="nav-item p-2 m-1" href="{{ url_for('github.index') }}">GitHub API</a>
+      <a class="nav-item p-2 m-1" href="{{ url_for('github.index') }}">
+        GitHub API
+      </a>
     </div>
     <div class="d-flex">
-      {% if session.access_token %}
+      {% if g.user %}
+        <span class="nav-item p-2 m-1 text-secondary">
+          {{ g.user['username'] }}
+        </span>
         <span class="nav-item p-2 m-1">
           <a href="{{ url_for('auth.logout') }}">Log out</a>
         </span>

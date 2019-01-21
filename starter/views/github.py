@@ -7,7 +7,7 @@ import requests
 import json
 
 from starter.views.auth import login_required
-from starter.database import get_db
+from starter.extensions import db
 
 blueprint = Blueprint('github', __name__, url_prefix='/github')
 
@@ -34,7 +34,6 @@ def search():
         params = { 'q': search, 'access_token': session['access_token'] }
     else:
         params = { 'q': search }
-
 
     url = 'https://api.github.com/search/repositories'
 

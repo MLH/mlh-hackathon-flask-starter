@@ -4,7 +4,6 @@ from flask import (
 )
 
 from starter.views.auth import login_required
-from starter.database import get_db
 
 blueprint = Blueprint('public', __name__)
 

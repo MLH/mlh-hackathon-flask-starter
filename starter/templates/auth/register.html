@@ -5,17 +5,6 @@
   <div class='row'>
     <div class='col-md-6 offset-md-3 col-lg-4 offset-lg-4'>
       <h1 class='h4'>Create an account.</h1>
-      <form method="post" class='form-group'>
-        <div class='form-group'>
-          <label for="username" class='mb-0'><small class='font-weight-bold'>Username</small></label>
-          <input class='form-control' name="username" id="username" placeholder='Pick a username' required>
-        </div>
-        <div class='form-group'>
-          <label for="password" class='mb-0'><small class='font-weight-bold'>Password</small></label>
-          <input class='form-control' type="password" name="password" id="password" placeholder='Create a password' required>
-        </div>
-        <button type="submit" class='btn btn-primary w-100'>Create account</button>
-      </form>
       <form action="{{ url_for('auth.githubLogin')}}" method="get">
         <button type="submit" class='btn btn-dark w-100'>Sign up with GitHub</button>
       </form>

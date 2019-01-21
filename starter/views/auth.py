@@ -1,24 +1,28 @@
 import functools
 
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
-)
+from flask import flash, redirect, render_template, request
+from flask import Blueprint, session, url_for, g
 from werkzeug.security import check_password_hash, generate_password_hash
 
 import requests
 import json
 
-from starter.database import get_db
+from starter.extensions import db
+from starter.models.user import User
+from starter.settings import GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
 
 blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
+github_oauth_url = 'https://github.com/login/oauth/authorize?client_id={}&client_secret={}'.format(
+    GITHUB_CLIENT_ID,
+    GITHUB_CLIENT_SECRET,
+)
 
 @blueprint.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        db = get_db()
         error = None
 
         if not username:
@@ -47,7 +51,6 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        db = get_db()
         error = None
         user = db.execute(
             'SELECT * FROM user WHERE username = ?', (username,)
@@ -69,54 +72,89 @@ def login():
 
 @blueprint.route('/github/login')
 def githubLogin():
-    url = 'https://github.com/login/oauth/authorize?client_id={}&client_secret={}'
-    github_oauth_url = url.format(
-        current_app.config['GITHUB_CLIENT_ID'],
-        current_app.config['GITHUB_CLIENT_SECRET'],
-    )
     return redirect(github_oauth_url)
 
 @blueprint.route('/github/register')
 def githubRegister():
-    url = 'https://github.com/login/oauth/authorize?client_id={}&client_secret={}'
-    github_oauth_url = url.format(
-        current_app.config['GITHUB_CLIENT_ID'],
-        current_app.config['GITHUB_CLIENT_SECRET'],
-    )
     return redirect(github_oauth_url)
+
 
 @blueprint.route('/github/callback', methods=('GET', 'POST'))
 def githubCallback():
-    if 'code' in request.args:
-        url = 'https://github.com/login/oauth/access_token'
-        payload = {
-            'code': request.args['code'],
-            'client_id': current_app.config['GITHUB_CLIENT_ID'],
-            'client_secret': current_app.config['GITHUB_CLIENT_SECRET'],
-        }
-        headers = {'Accept': 'application/json'}
-        r = requests.post(url, params=payload, headers=headers)
-        response = r.json()
-        # get access_token from response and store in session
-        if 'access_token' in response:
-            session['access_token'] = response['access_token']
-        else:
-            flash('Could not authorize your request. Oh dear.')
-        return redirect(url_for('public.index'))
+    if 'code' not in request.args:
+        return '', 404
 
-    return '', 404
+    # fetch access_token from GitHub OAuth and store in session
+    access_token = fetch_access_token(request.args['code'])
+    session['access_token'] = access_token
+
+    data = fetch_github_user(access_token)
+    user = find_or_create_user(data)
+    session['user_id'] = user.id
+
+    return redirect(url_for('public.index'))
 
 @blueprint.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('public.index'))
 
+@blueprint.before_app_request
+def load_logged_in_user():
+    user_id = session.get('user_id')
+
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = User.query.filter_by(id=user_id).first()
+
+
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if session.access_token is None:
+        if g.user is None:
             return redirect(url_for('auth.login'))
 
         return view(**kwargs)
 
     return wrapped_view
+
+"""Helper functions"""
+
+def fetch_access_token(code):
+    """Fetch GitHub Access Token for GitHub OAuth"""
+    url = 'https://github.com/login/oauth/access_token'
+    headers = { 'Accept': 'application/json' }
+    payload = {
+        'code': code,
+        'client_id': GITHUB_CLIENT_ID,
+        'client_secret': GITHUB_CLIENT_SECRET,
+    }
+
+    response = requests.post(url, params=payload, headers=headers)
+    data = response.json()
+
+    if not 'access_token' in data:
+        # Issue in retrieving GitHub access token
+        flash('Could not authorize your request. Please try again.')
+        return '', 404
+
+    return data['access_token']
+
+def fetch_github_user(access_token):
+    url = 'https://api.github.com/user'
+    payload = { 'access_token': access_token }
+
+    response = requests.get(url, params=payload)
+    return response.json()
+
+def find_or_create_user(data):
+    """Find existing user or create new User instance"""
+    instance = User.query.filter_by(username=data['login']).first()
+
+    if not instance:
+        instance = User(data['login'], data['avatar_url'], data['id'])
+        db.session.add(instance)
+        db.session.commit()
+
+    return instance
