@@ -2,11 +2,7 @@
   <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
     <div class="d-flex align-items-center">
       <a href="/" class="text-decoration-none text-dark">
-<<<<<<< HEAD
         <h1 class="h5 m-0">{Project Name}</h1>
-=======
-        <h1 class="h5 m-0">Project Name</h1>
->>>>>>> Add support for user models
       </a>
       <a class="nav-item p-2 m-1" href="{{ url_for('github.index') }}">
         GitHub API
@@ -15,10 +11,7 @@
     <div class="d-flex">
       {% if g.user %}
         <span class="nav-item p-2 m-1 text-secondary">
-<<<<<<< HEAD
           <img src="{{ g.user['avatar_url'] }}" class='rounded mr-1' style='width:25px; height:25px;'/>
-=======
->>>>>>> Add support for user models
           {{ g.user['username'] }}
         </span>
         <span class="nav-item p-2 m-1">
