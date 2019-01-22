@@ -9,10 +9,7 @@ This is the User Guide for the Hackathon Starter Kit. Here you will find additio
 
 ## Getting Started
 
-* Environment requirements
-* Project structure
-* Installation commands
-* Simple command definitions
+A link to our guide on [Getting Started](/getting-started) here.
 
 ## Flask Development
 
