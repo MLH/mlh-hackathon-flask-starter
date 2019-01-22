@@ -8,10 +8,10 @@
         GitHub API
       </a>
     </div>
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       {% if g.user %}
-        <span class="nav-item p-2 m-1 text-secondary">
-          <img src="{{ g.user['avatar_url'] }}" class='rounded mr-1' style='width:25px; height:25px;'/>
+        <span class="nav-item p-2 text-secondary d-flex align-items-center">
+          <img src="{{ g.user['avatar_url'] }}" class='rounded mr-2' style='width:24px; height:24px;'/>
           {{ g.user['username'] }}
         </span>
         <span class="nav-item p-2 m-1">
