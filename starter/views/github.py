@@ -14,7 +14,6 @@ blueprint = Blueprint('github', __name__, url_prefix='/github')
 @blueprint.route('/')
 def index():
     params = {}
-    url = ''
     if g.user is None:
         flash('Please sign in with your GitHub account.', 'info')
         url = 'https://api.github.com/users/octocat/starred'
