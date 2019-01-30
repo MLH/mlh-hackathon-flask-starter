@@ -1,47 +1,97 @@
 # Introduction
 
-A starting point for Flask web applications.
+This is a hackathon boilerplate for new Flask web applications created by [Major League Hacking](https://github.com/MLH). It is for hackers looking to get started quickly on a new hackathon project using the Flask microframework.
 
-* [Getting Started](/getting-started) - How to get started with a new Flask app
-* [User Guide](/user-guide) - How to develop apps created with this starter project.
+* [Installation Guide](#installation-guide) - How to get started with a new Flask app
+* [User Guide](/user-guide) - How to develop apps created with this starter project
+* [Contributing Guide](/contributing) - How to contribute to the project
 
-## Features
+# <a name='installation-guide'>Installation Guide</a>
 
-* **Minimal Lock-in:** - You can use the project for a custom setup at any time.
-* **Minimal Configuration** - You should not have to be configuring a new project for your entire hackathon. This project is designed to reduce the amount of setup required.
-* **Easy to Get Started** - This project includes documentation and guides to get you started.
+This project requires the following tools:
 
-## Getting Started
+* Python ([3.4](https://www.python.org/downloads/)) - The programming language used by Flask.
+* PostgreSQL ([9.4](https://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.4)) - A relational database system.
+* Virtualenv - A tool for creating isolated Python environments.
 
-* Environment requirements
-* Project structure
-* Installation commands
-* Simple command definitions
+<br/>
+To get started, install Python and Postgres on your local computer, if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
 
-## User Guide
+## Installation
 
-You can find more details and information on using this starter project within [its documentation](/user-guide).
 
-## What's Included?
+**1. Clone this repository to your local computer.**
+
+```
+$ git clone https://github.com/MLH/github-hackathon-starter.git
+$ cd github-hackathon-starter
+```
+
+<br/>
+**2. Create and activate a [virtual environment](http://flask.pocoo.org/docs/1.0/installation/#virtual-environments).**
+
+```
+$ python3 -m venv venv
+$ . venv/bin/activate
+```
+
+<br/>
+**3. Install Flask dependencies using `pip`.**
+
+```
+$ pip install -r requirements.txt
+```
+
+
+## Starting the app
+
+You can run your application from your terminal using the `flask` command. To run the app locally, you need to tell Flask where to find your application, then run it in development mode.
+
+Development mode makes it easier to make changes to your application. It includes an interactive debugger and will restart the server whenever you make changes to the code.
+
+For Linux and Mac:
+
+```
+export FLASK_APP=starter
+export FLASK_ENV=development
+flask run
+```
+
+<br/>
+For Windows Powershell, use `$env:` instead of `export`:
+
+```
+$env:FLASK_APP = 'starter'
+$env:FLASK_ENV = 'development'
+flask run
+```
+
+### `flask run`
+
+Runs the app in development mode. Requires the `FLASK_APP` and `FLASK_ENV` variables to be set.
+Opens http://localhost:5000 to view it in your browser.
+
+The app will automatically reload if you make changes to the code.
+You will see the build errors and warnings in the console.
+
+### `pip install`
+
+Installs a Python package for your application. Used to add new functionality to the project.
+
+# What's Included?
 
 * [Flask](http://flask.pocoo.org/) - A microframework for Python web applications
 * [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask concept for making modular applications
 * [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
+* [Flask-Misaka](https://flask-misaka.readthedocs.io) - A Flask extension that supports rendering markdown into HTML.
+* [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling server requests.
 * [Bootstrap 4](https://getbootstrap.com/) - An open source design system for HTML, CSS, and JS.
-* [Font Awesome 4](https://fontawesome.com/) - A popular web icon set and toolkit.
-* [PostgresSQL](https://www.postgresql.org/) - A popular open source relational database.
 * [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A templating language for Python, used by Flask.
 
-## Similar Projects
+# Code of Conduct
 
-* [**sahat/hackathon-starter**](https://github.com/sahat/hackathon-starter) - A boilerplate for Node.js web applications.
-* [**unicodeveloper/laravel-hackathon-starter**](https://github.com/unicodeveloper/laravel-hackathon-starter) - A hackathon boilerplate for Laravel web applications.
-* [**DrkSephy/django-hackathon-starter**](https://github.com/DrkSephy/django-hackathon-starter) - A hackathon starter project for Django web applications.
+The [MLH Code of Conduct](https://static.mlh.io/docs/mlh-code-of-conduct.pdf) applies to project participants and we expect contributors and maintainers to adhere to this standard.
 
-## Contributing
-
-If you something doesn't work, please [file an issue](https://github.com/nlaz/github-hackathon-starter). If something is missing or you would like to add something, please check out our [guide on Contributing](/contributing).
-
-## License
+# License
 
 The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/nlaz/github-hackathon-starter/blob/master/LICENSE.md).

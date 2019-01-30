@@ -4,6 +4,7 @@ cffi==1.11.5
 chardet==3.0.4
 Click==7.0
 Flask==1.0.2
+Flask-Misaka==1.0.0
 Flask-SQLAlchemy==2.3.2
 gunicorn==19.9.0
 idna==2.8
