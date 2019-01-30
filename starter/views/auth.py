@@ -26,7 +26,7 @@ def githubLogin():
 @blueprint.route('/github/callback', methods=('GET', 'POST'))
 def githubCallback():
     if 'code' not in request.args:
-        return '', 404
+        return '', 500
 
     # fetch access_token from GitHub OAuth and store in session
     access_token = fetch_access_token(request.args['code'])
@@ -44,7 +44,7 @@ def logout():
     return redirect(url_for('public.index'))
 
 @blueprint.before_app_request
-def load_logged_in_user():
+def get_current_user():
     user_id = session.get('user_id')
 
     if user_id is None:
