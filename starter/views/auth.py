@@ -7,7 +7,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 import requests
 import json
 
-from starter.extensions import db
+from starter.database import db
 from starter.models.user import User
 from starter.settings import GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
 
@@ -19,20 +19,8 @@ github_oauth_url = 'https://github.com/login/oauth/authorize?client_id={}&client
     'public_repo'
 )
 
-@blueprint.route('/login')
-def login():
-    return render_template('auth/login.html')
-
-@blueprint.route('/register')
-def register():
-    return render_template('auth/register.html')
-
 @blueprint.route('/github/login')
 def githubLogin():
-    return redirect(github_oauth_url)
-
-@blueprint.route('/github/register')
-def githubRegister():
     return redirect(github_oauth_url)
 
 @blueprint.route('/github/callback', methods=('GET', 'POST'))

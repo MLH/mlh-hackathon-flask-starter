@@ -1,5 +1,4 @@
-from starter.extensions import db
-
+from starter.database import db
 
 class User(db.Model):
     __tablename__ = 'user'

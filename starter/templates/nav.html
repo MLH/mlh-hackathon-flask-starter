@@ -19,10 +19,7 @@
         </span>
       {% else %}
         <span class="nav-item p-2 m-1">
-          <a href="{{ url_for('auth.login') }}">Sign in</a>
-        </span>
-        <span class="nav-item p-2 m-1">
-          <a href="{{ url_for('auth.register') }}">Sign up</a>
+          <a href="{{ url_for('auth.githubLogin') }}">Login with GitHub</a>
         </span>
       {% endif %}
     </div>

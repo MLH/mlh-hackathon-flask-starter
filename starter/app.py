@@ -2,10 +2,9 @@ import os
 
 from flask import Flask, render_template
 from starter import settings, views, models
-from starter.extensions import db
+from starter.database import db
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
-database_file = "sqlite:///{}".format(os.path.join(project_dir, "starter.db"))
 
 def create_app(config_object=settings):
     # create and configure the app

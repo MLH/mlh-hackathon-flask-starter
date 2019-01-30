@@ -7,7 +7,7 @@ import requests
 import json
 
 from starter.views.auth import login_required
-from starter.extensions import db
+from starter.database import db
 
 blueprint = Blueprint('github', __name__, url_prefix='/github')
 
