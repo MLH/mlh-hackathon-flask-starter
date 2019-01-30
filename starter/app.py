@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template
 from starter import settings, controllers, models
-from starter.extensions import db
+from starter.extensions import db, markdown
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -19,6 +19,7 @@ def create_app(config_object=settings):
 def register_extensions(app):
     """Register Flask extensions."""
     db.init_app(app)
+    markdown.init_app(app)
 
     with app.app_context():
         db.create_all()

@@ -1,5 +1,6 @@
 alembic==1.0.6
 certifi==2018.11.29
+cffi==1.11.5
 chardet==3.0.4
 Click==7.0
 Flask==1.0.2
@@ -10,7 +11,9 @@ itsdangerous==1.1.0
 Jinja2==2.10
 Mako==1.0.7
 MarkupSafe==1.1.0
+misaka==2.1.1
 psycopg2==2.7.3.2
+pycparser==2.19
 python-dotenv==0.10.1
 python-editor==1.0.3
 requests==2.21.0
