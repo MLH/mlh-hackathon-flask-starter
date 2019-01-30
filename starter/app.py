@@ -1,7 +1,6 @@
 import os
 
 from flask import Flask, render_template
-
 from starter import settings, controllers, models
 from starter.extensions import db
 
