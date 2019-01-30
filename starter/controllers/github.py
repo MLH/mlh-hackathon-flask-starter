@@ -1,48 +1,55 @@
-from flask import redirect, render_template, request
-from flask import Blueprint, flash, url_for, session
+from flask import (
+    Blueprint, flash, g, redirect, render_template, request, url_for, session
+)
+
+from werkzeug.exceptions import abort
+import requests
+import json
 
 from starter.controllers.auth import login_required
 from starter.database import db
-from starter.services.github import GitHub
 
 blueprint = Blueprint('github', __name__, url_prefix='/github')
 
 @blueprint.route('/')
 def index():
-    if not 'access_token' in session:
+    params = {}
+    if g.user is None:
         flash('Please sign in with your GitHub account.', 'info')
-        return render_template('github/index.html')
+        url = 'https://api.github.com/users/octocat/starred'
+    else:
+        params = { 'access_token': session['access_token'] }
+        url = 'https://api.github.com/user/starred'
 
-    github = GitHub(access_token=session['access_token'])
+    results = requests.get(url, params=params)
 
-    starred_repos = github.get('/user/starred')
-    return render_template('github/index.html', repos=starred_repos)
+    return render_template('github/index.html', repos=results.json())
 
 @blueprint.route('/search')
 def search():
+    params = { 'q': search }
     search = request.args.get('query')
-
     if search is None or search == '':
-        flash('Please include a repo name you want to search for.')
         return redirect(url_for('github.index'))
-    if not 'access_token' in session:
-        flash('Please sign in with your GitHub account.', 'error')
-        return redirect(url_for('github.index'))
+    if 'access_token' in session:
+        params.access_token = session['access_token']
 
-    github = GitHub(access_token=session['access_token'])
+    url = 'https://api.github.com/search/repositories'
 
-    repos = github.get('/search/repositories', { 'q': search } )
-    return render_template('github/index.html', repos=repos['items'])
+    response = requests.get(url, params=params)
+    results = response.json()
+
+    return render_template('github/index.html', repos=results['items'])
 
 @blueprint.route('/star', methods=['POST'])
 def star():
-    repo = request.form['full_name']
-
     if not 'access_token' in session:
-        flash('Please sign in with your GitHub account.', 'error')
-        return redirect(url_for('github.index'))
+        flash('Please sign in with your GitHub account.')
+        return '', 404
 
-    github = GitHub(access_token=session['access_token'])
-    github.delete('/user/starred/' + repo)
+    full_name = request.form['full_name']
+    url = 'https://api.github.com/user/starred/{}'.format(full_name)
+    params = { 'access_token': session['access_token'] }
+    response = requests.delete(url, params=params)
 
     return redirect(url_for('github.index'))
