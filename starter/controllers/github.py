@@ -13,7 +13,9 @@ def index():
         flash('Please sign in with your GitHub account.', 'info')
         return render_template('github/index.html')
 
-    starred_repos = GitHub.get_starred_repos(session['access_token'])
+    github = GitHub(access_token=session['access_token'])
+
+    starred_repos = github.get('/user/starred')
     return render_template('github/index.html', repos=starred_repos)
 
 @blueprint.route('/search')
@@ -27,15 +29,20 @@ def search():
         flash('Please sign in with your GitHub account.', 'error')
         return redirect(url_for('github.index'))
 
-    repos = GitHub.search_repos(session['access_token'], search )
+    github = GitHub(access_token=session['access_token'])
+
+    repos = github.get('/search/repositories', { 'q': search } )
     return render_template('github/index.html', repos=repos['items'])
 
 @blueprint.route('/star', methods=['POST'])
 def star():
+    repo = request.form['full_name']
+
     if not 'access_token' in session:
         flash('Please sign in with your GitHub account.', 'error')
         return redirect(url_for('github.index'))
 
-    GitHub.unstar_repo(session['access_token'], request.form['full_name'])
+    github = GitHub(access_token=session['access_token'])
+    github.delete('/user/starred/' + repo)
 
     return redirect(url_for('github.index'))

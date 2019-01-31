@@ -10,7 +10,6 @@ def create_app(config_object=settings):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(config_object)
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     register_extensions(app)
     register_blueprints(app)

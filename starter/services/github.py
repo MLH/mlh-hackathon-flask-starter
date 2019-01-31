@@ -1,17 +1,27 @@
+import requests, json
+
 from flask import flash
 
-import requests
-import json
+api_url = 'https://api.github.com'
+authorize_url = 'https://github.com/login/oauth/authorize'
+token_url = 'https://github.com/login/oauth/access_token'
 
 class GitHub():
 
-    def __init__(self, client_id, client_secret):
+    def __init__(self, client_id = '', client_secret = '', access_token = ''):
         self.client_id = client_id
         self.client_secret = client_secret
+        self.access_token = access_token
+
+    def authorization_url(self, scope):
+        return authorize_url + '?client_id={}&client_secret={}&scope={}'.format(
+            self.client_id,
+            self.client_secret,
+            scope
+        )
 
     def get_token(self, code):
         """Fetch GitHub Access Token for GitHub OAuth."""
-        url = 'https://github.com/login/oauth/access_token'
         headers = { 'Accept': 'application/json' }
         params = {
             'code': code,
@@ -19,44 +29,30 @@ class GitHub():
             'client_secret': self.client_secret,
         }
 
-        response = requests.post(url, params=params, headers=headers)
-        data = response.json()
-
-        if not 'access_token' in data:
-            # Issue in retrieving GitHub access token
-            flash('Could not authorize your request. Please try again.')
-            return '', 404
-
-        return data['access_token']
+        data = requests.post(token_url, params=params, headers=headers).json()
+        return data.get('access_token', None)
 
     def get_user_from_token(access_token):
         """Fetch user data using the access token."""
-        url = 'https://api.github.com/user'
+        url = api_url + '/user'
         params = { 'access_token': access_token }
 
-        response = requests.get(url, params=params)
-        return response.json()
+        return requests.get(url, params=params).json()
 
-    def get_starred_repos(access_token):
-        """Fetch starred repos for current user"""
-        url = 'https://api.github.com/user/starred'
-        params = { 'access_token': access_token }
+    def get(self, route_url, params = {}):
+        url = api_url + route_url
+        params['access_token'] = self.access_token
 
-        response = requests.get(url, params=params)
-        return response.json()
+        return requests.get(url, params=params).json()
 
-    def search_repos(access_token, search):
-        """Fetch repos that match search string"""
-        url = 'https://api.github.com/search/repositories'
-        params = { 'q': search, 'access_token': access_token }
+    def post(self, route_url, params = {}):
+        url = api_url + route_url
+        params['access_token']  = self.access_token
 
-        response = requests.get(url, params=params)
-        return response.json()
+        return requests.post(url, params=params).json()
 
-    def unstar_repo(access_token, repo_name):
-        """Unstars the repo if specified for the current user"""
-        url = 'https://api.github.com/user/starred/{}'.format(repo_name)
-        params = { 'access_token': access_token }
+    def delete(self, route_url, params = {}):
+        url = api_url + route_url
+        params['access_token']  = self.access_token
 
-        response = requests.delete(url, params=params)
-        return response
+        return requests.delete(url, params=params)
