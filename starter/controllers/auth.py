@@ -1,11 +1,8 @@
-import functools
+import functools, json, requests
 
 from flask import flash, redirect, render_template, request
 from flask import Blueprint, session, url_for, g
 from werkzeug.security import check_password_hash, generate_password_hash
-
-import requests
-import json
 
 from starter.database import db
 from starter.models.user import User
@@ -14,24 +11,24 @@ from starter.services.github import GitHub
 
 blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
-github_oauth_url = 'https://github.com/login/oauth/authorize?client_id={}&client_secret={}&scope={}'.format(
-    GITHUB_CLIENT_ID,
-    GITHUB_CLIENT_SECRET,
-    'public_repo'
-)
+github = GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET)
 
 @blueprint.route('/github/login')
 def githubLogin():
-    return redirect(github_oauth_url)
+    return redirect(github.authorization_url(scope='public_repo'))
 
 @blueprint.route('/github/callback', methods=('GET', 'POST'))
 def githubCallback():
     if 'code' not in request.args:
         return '', 500
 
-    github = GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET)
     # Fetch user from GitHub OAuth and store in session
     access_token = github.get_token(request.args['code'])
+
+    if access_token is None:
+        flash('Could not authorize your request. Please try again.')
+        return '', 404
+
     user = User.find_or_create_from_token(access_token)
 
     session['access_token'] = access_token
