@@ -2,9 +2,7 @@ import functools, json, requests
 
 from flask import flash, redirect, render_template, request
 from flask import Blueprint, session, url_for, g
-from werkzeug.security import check_password_hash, generate_password_hash
 
-from starter.database import db
 from starter.models.user import User
 from starter.settings import GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
 from starter.services.github import GitHub
