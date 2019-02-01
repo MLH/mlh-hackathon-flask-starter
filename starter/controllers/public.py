@@ -1,10 +1,8 @@
-
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for, session
 )
 
-from starter.views.auth import login_required
-from starter.database import get_db
+from starter.controllers.auth import login_required
 
 blueprint = Blueprint('public', __name__)
 

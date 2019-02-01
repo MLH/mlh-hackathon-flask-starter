@@ -8,6 +8,7 @@ idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10
 MarkupSafe==1.1.0
+psycopg2==2.7.3.2
 python-dotenv==0.10.1
 requests==2.21.0
 SQLAlchemy==1.2.16

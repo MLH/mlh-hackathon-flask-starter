@@ -1,15 +1,16 @@
 import os
 
 from flask import Flask, render_template
-from starter import settings, views, models, database
+from starter import settings, controllers, models
+from starter.database import db
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
-database_file = "sqlite:///{}".format(os.path.join(project_dir, "starter.db"))
 
 def create_app(config_object=settings):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(config_object)
+
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
@@ -17,14 +18,17 @@ def create_app(config_object=settings):
 
 def register_extensions(app):
     """Register Flask extensions."""
-    database.init_app(app)
+    db.init_app(app)
+
+    with app.app_context():
+        db.create_all()
     return None
 
 def register_blueprints(app):
     """Register Flask blueprints."""
-    app.register_blueprint(views.public.blueprint)
-    app.register_blueprint(views.auth.blueprint)
-    app.register_blueprint(views.github.blueprint)
+    app.register_blueprint(controllers.public.blueprint)
+    app.register_blueprint(controllers.auth.blueprint)
+    app.register_blueprint(controllers.github.blueprint)
     return None
 
 def register_errorhandlers(app):
