@@ -14,11 +14,9 @@ This project requires the following tools:
 * PostgreSQL ([9.4](https://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.4)) - A relational database system.
 * Virtualenv - A tool for creating isolated Python environments.
 
-<br/>
 To get started, install Python and Postgres on your local computer, if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
 
 ## Installation
-
 
 **1. Clone this repository to your local computer.**
 
@@ -27,7 +25,6 @@ $ git clone https://github.com/MLH/github-hackathon-starter.git
 $ cd github-hackathon-starter
 ```
 
-<br/>
 **2. Create and activate a [virtual environment](http://flask.pocoo.org/docs/1.0/installation/#virtual-environments).**
 
 ```
@@ -35,7 +32,6 @@ $ python3 -m venv venv
 $ . venv/bin/activate
 ```
 
-<br/>
 **3. Install Flask dependencies using `pip`.**
 
 ```
@@ -57,7 +53,6 @@ export FLASK_ENV=development
 flask run
 ```
 
-<br/>
 For Windows Powershell, use `$env:` instead of `export`:
 
 ```

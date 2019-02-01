@@ -2,17 +2,13 @@
 
 This is the User Guide for the Hackathon Starter Kit. Here you will find additional documentation and guides on how to use the project.
 
-
 ## How It Works
 
-( TODO )
+## Starting the app
 
-## Getting Started
-
-A link to our guide on [Getting Started](/getting-started) here.
+## Project Structure (Overview)
 
 ## Flask Development
-
 * Application Setup
 * Templates
 * Blueprints and Views
@@ -23,42 +19,20 @@ A link to our guide on [Getting Started](/getting-started) here.
 ## Guides
 
 ### GitHub
-
 * Setting up OAuth apps, authentication, etc.
 * Fetching and using GitHub's API
 
 ### PostgresSQL
-
 * Setting up database
 * Inserting and running commands
 
 ## Deployment
-
-### Deploy with Heroku
-
-(TODO)
-
-### Deploy with Docker
-
-(TODO)
-
-## FAQs
-
-### How do I add React or Vue?
-
-(TODO)
-
-### How do I create a new page?
-
-(TODO)
-
-### How do I use in on Windows?
-
-(TODO)
+* Deploy to Heroku
+* Deploy to Google Cloud Platform
+* Deploy using Docker
 
 ## Support
-
 * Troubleshooting
-* Hackathon support channel
-* File issue
+* Support channel for hackathons
+* Filing issues
 * Contact email
