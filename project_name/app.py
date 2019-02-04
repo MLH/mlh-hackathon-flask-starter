@@ -1,8 +1,8 @@
 import os
 
 from flask import Flask, render_template
-from starter import settings, controllers, models
-from starter.extensions import db, markdown
+from project_name import settings, views, models
+from project_name.extensions import db, markdown
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -27,9 +27,9 @@ def register_extensions(app):
 
 def register_blueprints(app):
     """Register Flask blueprints."""
-    app.register_blueprint(controllers.public.blueprint)
-    app.register_blueprint(controllers.auth.blueprint)
-    app.register_blueprint(controllers.github.blueprint)
+    app.register_blueprint(views.public.blueprint)
+    app.register_blueprint(views.auth.blueprint)
+    app.register_blueprint(views.github.blueprint)
     return None
 
 def register_errorhandlers(app):

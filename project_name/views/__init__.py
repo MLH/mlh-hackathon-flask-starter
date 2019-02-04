@@ -1,2 +1,2 @@
-"""Controllers package"""
+"""Views package"""
 from . import auth, github, public
