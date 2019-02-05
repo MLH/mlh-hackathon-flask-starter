@@ -79,7 +79,7 @@ The core of the Flask app is contained within the `project_name` directory. It c
 
 ## Flask Development
 
-Flask is a "microframework" for developing web applications in Python. That means it is easy to get started with a basic application without a lot of boilerplate. This also means it relies heavily on external libraries, or extensions, to add new functionality.
+Flask is a "microframework" for developing web applications in Python. That means it is easy to get started with a basic application without a lot of boilerplate. This also means it relies heavily on external libraries, or extensions, to add new functionality. You can learn more about how to use Flask with [this guide](http://flask.pocoo.org/docs/1.0/tutorial/).
 
 ## Basic Authentication
 
@@ -152,7 +152,7 @@ db.session.commit()
 
 This gives us flexibility in our database layer and keeps our Python code clean of SQL commands. The data models located in the `/models` directory each use the `SQLAlchemy` library.
 
-## <a name='github-oauth'>GitHub OAuth App</a>
+## <a name='github-oauth'>GitHub OAuth Apps</a>
 
 This project uses a GitHub OAuth app for Authentication and uses GitHub's API. To setup GitHub for authentication, following these steps:
 
