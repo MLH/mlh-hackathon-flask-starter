@@ -1,8 +1,8 @@
 from flask import redirect, render_template, request
 from flask import Blueprint, flash, url_for, session
 
-from starter.controllers.auth import login_required
-from starter.services.github import GitHub
+from app.views.auth import login_required
+from app.services.github import GitHub
 
 blueprint = Blueprint('github', __name__, url_prefix='/github')
 

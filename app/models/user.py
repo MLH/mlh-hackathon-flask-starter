@@ -1,5 +1,5 @@
-from starter.extensions import db
-from starter.services.github import GitHub
+from app.extensions import db
+from app.services.github import GitHub
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -13,6 +13,7 @@ class User(db.Model):
         self.username = username
         self.avatar_url = avatar_url
         self.github_id = github_id
+
     def find_or_create_from_token(access_token):
         data = GitHub.get_user_from_token(access_token)
 

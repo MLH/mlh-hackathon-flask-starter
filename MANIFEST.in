@@ -1,6 +1,6 @@
-include starter/schema.sql
-graft starter/static
-graft starter/templates
-graft starter/models
-graft starter/controllers
+include app/schema.sql
+graft app/static
+graft app/templates
+graft app/models
+graft app/views
 global-exclude *.pyc

@@ -21,8 +21,8 @@ To get started, install Python and Postgres on your local computer, if you don't
 **1. Clone this repository to your local computer.**
 
 ```
-$ git clone https://github.com/MLH/github-hackathon-starter.git
-$ cd github-hackathon-starter
+$ git clone https://github.com/MLH/mlh-hackathon-flask-starter.git
+$ cd mlh-hackathon-flask-starter
 ```
 
 **2. Create and activate a [virtual environment](http://flask.pocoo.org/docs/1.0/installation/#virtual-environments).**
@@ -48,7 +48,7 @@ Development mode makes it easier to make changes to your application. It include
 For Linux and Mac:
 
 ```
-export FLASK_APP=starter
+export FLASK_APP=app
 export FLASK_ENV=development
 flask run
 ```
@@ -56,7 +56,7 @@ flask run
 For Windows Powershell, use `$env:` instead of `export`:
 
 ```
-$env:FLASK_APP = 'starter'
+$env:FLASK_APP = 'app'
 $env:FLASK_ENV = 'development'
 flask run
 ```
@@ -64,7 +64,7 @@ flask run
 ### `flask run`
 
 Runs the app in development mode. Requires the `FLASK_APP` and `FLASK_ENV` variables to be set.
-Opens http://localhost:5000 to view it in your browser.
+Open http://localhost:5000 to view it in your browser.
 
 The app will automatically reload if you make changes to the code.
 You will see the build errors and warnings in the console.
@@ -76,7 +76,7 @@ Installs a Python package for your application. Used to add new functionality to
 # What's Included?
 
 * [Flask](http://flask.pocoo.org/) - A microframework for Python web applications
-* [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask concept for making modular applications
+* [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask extension for making modular applications
 * [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
 * [Flask-Misaka](https://flask-misaka.readthedocs.io) - A Flask extension that supports rendering markdown into HTML.
 * [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling server requests.
@@ -85,7 +85,7 @@ Installs a Python package for your application. Used to add new functionality to
 
 # Code of Conduct
 
-The [MLH Code of Conduct](https://static.mlh.io/docs/mlh-code-of-conduct.pdf) applies to project participants and we expect contributors and maintainers to adhere to this standard.
+We enforce a Code of Conduct for all maintainers and contributors of this Guide. Read more in [CONDUCT.md](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/starter/docs/CONDUCT.md).
 
 # License
 
