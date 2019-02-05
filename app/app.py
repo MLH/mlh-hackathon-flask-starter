@@ -1,8 +1,8 @@
 import os
 
 from flask import Flask, render_template
-from project_name import settings, views, models
-from project_name.extensions import db, markdown
+from app import settings, views, models
+from app.extensions import db, markdown
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 

@@ -1,6 +1,6 @@
-include project_name/schema.sql
-graft project_name/static
-graft project_name/templates
-graft project_name/models
-graft project_name/views
+include app/schema.sql
+graft app/static
+graft app/templates
+graft app/models
+graft app/views
 global-exclude *.pyc

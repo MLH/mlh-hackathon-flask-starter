@@ -3,9 +3,9 @@ import functools, json, requests
 from flask import flash, redirect, render_template, request
 from flask import Blueprint, session, url_for, g
 
-from project_name.models.user import User
-from project_name.settings import GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
-from project_name.services.github import GitHub
+from app.models.user import User
+from app.settings import GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
+from app.services.github import GitHub
 
 blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 

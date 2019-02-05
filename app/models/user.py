@@ -1,5 +1,5 @@
-from project_name.extensions import db
-from project_name.services.github import GitHub
+from app.extensions import db
+from app.services.github import GitHub
 
 class User(db.Model):
     __tablename__ = 'user'

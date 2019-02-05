@@ -48,7 +48,7 @@ Development mode makes it easier to make changes to your application. It include
 For Linux and Mac:
 
 ```
-export FLASK_APP=project_name
+export FLASK_APP=app
 export FLASK_ENV=development
 flask run
 ```
@@ -56,7 +56,7 @@ flask run
 For Windows Powershell, use `$env:` instead of `export`:
 
 ```
-$env:FLASK_APP = 'project_name'
+$env:FLASK_APP = 'app'
 $env:FLASK_ENV = 'development'
 flask run
 ```

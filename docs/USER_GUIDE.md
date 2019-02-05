@@ -20,7 +20,7 @@ Development mode makes it easier to make changes to your application. It include
 For Linux and Mac:
 
 ```
-export FLASK_APP=project_name
+export FLASK_APP=app
 export FLASK_ENV=development
 flask run
 ```
@@ -28,7 +28,7 @@ flask run
 For Windows Powershell, use `$env:` instead of `export`:
 
 ```
-$env:FLASK_APP = 'project_name'
+$env:FLASK_APP = 'app'
 $env:FLASK_ENV = 'development'
 flask run
 ```
@@ -55,7 +55,7 @@ mlh-hackathon-flask-starter/
 ├── setup.py
 ├── build/
 ├── docs/
-└── project_name/
+└── app/
   ├── views/
   │   ├── auth.py
   │   ├── github.py
@@ -75,7 +75,7 @@ mlh-hackathon-flask-starter/
   └── settings.py
 ```
 
-The core of the Flask app is contained within the `project_name` directory. It contains `app.py`, the code to create and run the app, `/views`, handles all the endpoints and business logic, `/models`, handles all the features for the data models like users, `/templates`, contains the templates for [Jinja](http://jinja.pocoo.org/docs/2.10/)-based layouts, and `/static`, contains all the static assets. You can learn more about [the structure of Flask apps here](http://flask.pocoo.org/docs/1.0/tutorial/layout/).
+The core of the Flask app is contained within the `app` directory. It contains `app.py`, the code to create and run the app, `/views`, handles all the endpoints and business logic, `/models`, handles all the features for the data models like users, `/templates`, contains the templates for [Jinja](http://jinja.pocoo.org/docs/2.10/)-based layouts, and `/static`, contains all the static assets. You can learn more about [the structure of Flask apps here](http://flask.pocoo.org/docs/1.0/tutorial/layout/).
 
 ## Flask Development
 
@@ -110,7 +110,7 @@ $ python
 
 These type of requests can be made inside of your views to fetch and store data for your application. For example, you might make a request to GitHub's API and display it [directly in HTML](/github). Depending on your needs, you can also store this data to your database to use later.
 
-To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/nlaz/github-hackathon-starter/blob/master/project_name/views/github.py).
+To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/nlaz/github-hackathon-starter/blob/master/app/views/github.py).
 
 ## Static Files
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from project_name.extensions import markdown
+from app.extensions import markdown
 
 blueprint = Blueprint('public', __name__)
 
