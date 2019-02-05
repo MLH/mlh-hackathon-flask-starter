@@ -2,7 +2,7 @@
 
 This is the User Guide for the Hackathon Starter Kit. Here you will find additional documentation and guides on how to use the project.
 
-If you think we are missing something or you have ideas for more guides that should be on this page, [let us know]() or [contribute some](/contributing)!
+If you think we are missing something or you have ideas for more guides that should be on this page, [let us know](mailto:hi@mlh.io) or [contribute some](/contributing)!
 
 ## How It Works
 
@@ -81,7 +81,7 @@ The core of the Flask app is contained within the `app` directory. It contains `
 
 Flask is a "microframework" for developing web applications in Python. That means it is easy to get started with a basic application without a lot of boilerplate. This also means it relies heavily on external libraries, or extensions, to add new functionality. You can learn more about how to use Flask with [this guide](http://flask.pocoo.org/docs/1.0/tutorial/).
 
-## Basic Authentication
+## OAuth Authentication
 
 This project uses GitHub OAuth to handle user authentication. Meaning a new user of your site will sign in with a GitHub account instead of a new username and password. This typically is more secure because you won't be storing new credentials for each user. It is also quicker and easier for the user. Win-win.
 
@@ -170,4 +170,4 @@ This project uses a GitHub OAuth app for Authentication and uses GitHub's API. T
 
 If you are having problems running the project or getting it to work, check the [issue tracker](https://github.com/MLH/mlh-hackathon-flask-starter/issues) for any related issues. It might also have the solution to your issue. If an issue doesn't already exist, feel free to open a new issue. We will try to respond as quickly as possible.
 
-You can also reach out to our email to help with more pressing issues.
+You can also reach out to [our email](mailto:hi@mlh.io) to help with more pressing issues.
