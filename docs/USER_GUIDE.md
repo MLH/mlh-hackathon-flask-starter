@@ -20,7 +20,7 @@ Development mode makes it easier to make changes to your application. It include
 For Linux and Mac:
 
 ```
-export FLASK_APP=app
+export FLASK_APP=app/app.py
 export FLASK_ENV=development
 flask run
 ```
@@ -28,7 +28,7 @@ flask run
 For Windows Powershell, use `$env:` instead of `export`:
 
 ```
-$env:FLASK_APP = 'app'
+$env:FLASK_APP = 'app/app.py'
 $env:FLASK_ENV = 'development'
 flask run
 ```
@@ -165,6 +165,23 @@ This project uses a GitHub OAuth app for Authentication and uses GitHub's API. T
 4. Add your GitHub credentials to your environment variables in `.env`.
     * Replace `<INSERT_CLIENT_ID>` with your GitHub Client ID.
     * Replace `<INSERT_CLIENT_SECRET>` with your GitHub Client Secret.
+
+## Deployment
+
+### Deploy to Heroku
+
+Heroku is an easy way for developers to deploy their application. To deploy to Heroku, make sure you have the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed first. Then follow these steps:
+
+1. Clone the code into a fresh folder: `git clone https://github.com/MLH/mlh-hackathon-flask-starter.git`
+2. Navigate to the new folder: `cd mlh-hackathon-flask-starter`
+3. Create a new Heroku app: `heroku create`
+4. Push the code to Heroku with git: `git push heroku master`
+5. Make sure the app builds and you can open it: `heroku open`
+
+Alternatively, you can use this button to create a new application on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nlaz/mlh-hackathon-flask-starter)
+
 
 # Support
 

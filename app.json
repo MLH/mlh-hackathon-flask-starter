@@ -1,0 +1,7 @@
+{
+  "name": "MLH Hackathon Flask Starter",
+  "description": "A hackathon starting point for new Flask applications",
+  "repository": "https://github.com/nlaz/mlh-hackathon-flask-starter.git",
+  "logo": "https://avatars1.githubusercontent.com/u/5752708?s=100",
+  "keywords": ["python", "flask"]
+}
