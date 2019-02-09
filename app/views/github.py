@@ -3,14 +3,18 @@ from flask import Blueprint, flash, url_for, session
 
 from app.views.auth import login_required
 from app.services.github import GitHub
+from app.extensions import markdown
 
 blueprint = Blueprint('github', __name__, url_prefix='/github')
 
 @blueprint.route('/')
 def index():
     if not 'access_token' in session:
-        flash('Please sign in with your GitHub account.', 'info')
-        return render_template('github/index.html')
+        flash('This page needs an authenticated user. Please sign in with your GitHub account.', 'warning')
+        with open('docs/USER_GUIDE.md', 'r') as input_file:
+            text = input_file.read()
+            content = markdown.render(text)
+            return render_template('github/guide.html', body=content)
 
     github = GitHub(access_token=session['access_token'])
 
@@ -22,10 +26,10 @@ def search():
     search = request.args.get('query')
 
     if search is None or search == '':
-        flash('Please include a repo name you want to search for.')
+        flash('Please include a repo name you want to search for.', 'danger')
         return redirect(url_for('github.index'))
     if not 'access_token' in session:
-        flash('Please sign in with your GitHub account.', 'error')
+        flash('Please sign in with your GitHub account.', 'danger')
         return redirect(url_for('github.index'))
 
     github = GitHub(access_token=session['access_token'])
@@ -38,7 +42,7 @@ def star():
     repo = request.form['full_name']
 
     if not 'access_token' in session:
-        flash('Please sign in with your GitHub account.', 'error')
+        flash('Please sign in with your GitHub account.', 'danger')
         return redirect(url_for('github.index'))
 
     github = GitHub(access_token=session['access_token'])

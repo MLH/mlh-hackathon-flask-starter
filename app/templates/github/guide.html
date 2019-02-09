@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<div class='bg-dark text-light py-5'>
+  <div class='container py-5 my-4'>
+    <h1 class='h1 text-white mb-1'>GitHub API Example</h1>
+    <h2 class='h6 text-secondary'>Simple example of fetching and managing GitHub data.</h2>
+    <a href="{{ url_for('public.user_guide', _anchor='github-oauth') }}" class='btn btn-primary mt-2'>Learn More</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class='container py-5 my-3'>
+  {% if body %}
+    <div class='content markdown'>{{ body|safe }}</div>
+  {% endif %}
+</div>
+{% endblock %}

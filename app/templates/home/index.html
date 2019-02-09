@@ -1,16 +1,16 @@
 {% extends 'layout.html' %}
 
 {% block header %}
-  <div class='bg-dark text-light'>
+  <div class='bg-dark text-light py-5'>
     <div class='container py-5 my-4'>
-      <h1 class='h3 mb-1'>Hackathon Flask Starter Kit</h1>
+      <h1 class='h1 mb-1 text-white'>Hackathon Flask Starter</h1>
       <h2 class='h6 text-secondary'>Presented by GitHub & MLH</h2>
     </div>
   </div>
 {% endblock %}
 
 {% block content %}
-  <div class='container my-5'>
+  <div class='container py-5 my-3'>
     {% if body %}
       <div class='content markdown'>{{ body|safe }}</div>
     {% endif %}

@@ -1,5 +1,5 @@
-{% for message in get_flashed_messages() %}
-  <div class="alert alert-danger mb-0 rounded-0">
+{% for category, message in get_flashed_messages(with_categories=true) %}
+  <div class="alert alert-{{ category if category != None else 'danger' }} mb-0 rounded-0">
     <div class="container">
       {{ message }}
     </div>
