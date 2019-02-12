@@ -163,8 +163,33 @@ This project uses a GitHub OAuth app for Authentication and uses GitHub's API. T
     * Add callback URL, use http://localhost:5000/ for local development.
     * Click 'Register application'.
 4. Add your GitHub credentials to your environment variables in `.env`.
-    * Replace `<INSERT_CLIENT_ID>` with your GitHub Client ID.
-    * Replace `<INSERT_CLIENT_SECRET>` with your GitHub Client Secret.
+    * Replace `[INSERT_CLIENT_ID]` with your GitHub Client ID.
+    * Replace `[INSERT_CLIENT_SECRET]` with your GitHub Client Secret.
+
+## <a name='environment-variables'>Environment Variables</a>
+To run the project, you need to configure the application to run locally. This will require updating a set of environment variables specific to your environment. Create a new file named `.env` by duplicating `.env.sample`. Update the new file with the GitHub credentials. It should look similar to this:
+
+```
+# .env file
+SECRET_KEY="octocat"
+DATABASE_URL="[INSERT_DATABASE_URL]"
+GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
+GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"
+```
+
+The `DATABASE_URL` variable is the path to your database system. This is where you can add the url to your PostgreSQL.
+
+The `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` variables are the app credentials from your [GitHub OAuth app](https://github.com/settings/developers).
+
+
+```
+# .flaskenv file
+FLASK_APP='app/app.py'
+FLASK_ENV='development'
+```
+
+The `FLASK_APP` and `FLASK_ENV` variables are needed for running the application locally. The `SECRET_KEY` variable is used to manage the server sessions.
+
 
 ## Deployment
 

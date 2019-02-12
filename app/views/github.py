@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import redirect, render_template, request
 from flask import Blueprint, flash, url_for, session
 

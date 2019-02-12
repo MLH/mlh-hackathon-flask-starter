@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import functools, json, requests
 
 from flask import flash, redirect, render_template, request
@@ -9,22 +10,22 @@ from app.services.github import GitHub
 
 blueprint = Blueprint('auth', __name__, url_prefix='/auth')
 
-github = GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET)
-
-@blueprint.route('/github/login')
+@blueprint.route('/login/github')
 def githubLogin():
+    github = GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET)
     return redirect(github.authorization_url(scope='public_repo'))
 
-@blueprint.route('/github/callback', methods=('GET', 'POST'))
+@blueprint.route('/callback/github', methods=('GET', 'POST'))
 def githubCallback():
     if 'code' not in request.args:
         return '', 500
 
     # Fetch user from GitHub OAuth and store in session
+    github = GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET)
     access_token = github.get_token(request.args['code'])
 
     if access_token is None:
-        flash('Could not authorize your request. Please try again.')
+        flash('Could not authorize your request. Please try again.', 'danger')
         return '', 404
 
     user = User.find_or_create_from_token(access_token)

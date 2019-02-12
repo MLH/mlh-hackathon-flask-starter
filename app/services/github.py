@@ -32,13 +32,6 @@ class GitHub():
         data = requests.post(token_url, params=params, headers=headers).json()
         return data.get('access_token', None)
 
-    def get_user_from_token(access_token):
-        """Fetch user data using the access token."""
-        url = api_url + '/user'
-        params = { 'access_token': access_token }
-
-        return requests.get(url, params=params).json()
-
     def get(self, route_url, params = {}):
         url = api_url + route_url
         params['access_token'] = self.access_token
@@ -56,3 +49,11 @@ class GitHub():
         params['access_token']  = self.access_token
 
         return requests.delete(url, params=params)
+
+    @staticmethod
+    def get_user_from_token(access_token):
+        """Fetch user data using the access token."""
+        url = api_url + '/user'
+        params = { 'access_token': access_token }
+
+        return requests.get(url, params=params).json()

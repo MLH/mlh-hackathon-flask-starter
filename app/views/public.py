@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Blueprint, render_template
 
 from app.extensions import markdown
@@ -14,7 +15,7 @@ def index():
 @blueprint.route('/user-guide')
 def user_guide():
     with open('docs/USER_GUIDE.md', 'r') as input_file:
-        text = input_file.read()
+        text = input_file.read().decode('utf-8')
         content = markdown.render(text)
         return render_template('home/index.html', body=content)
 

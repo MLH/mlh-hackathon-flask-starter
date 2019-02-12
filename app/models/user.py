@@ -14,6 +14,7 @@ class User(db.Model):
         self.avatar_url = avatar_url
         self.github_id = github_id
 
+    @staticmethod
     def find_or_create_from_token(access_token):
         data = GitHub.get_user_from_token(access_token)
 
@@ -27,6 +28,7 @@ class User(db.Model):
 
         return instance
 
+    @staticmethod
     def find_or_create_from_token(access_token):
         data = GitHub.get_user_from_token(access_token)
 
