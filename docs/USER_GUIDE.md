@@ -171,7 +171,6 @@ To run the project, you need to configure the application to run locally. This w
 
 ```
 # .env file
-SECRET_KEY="octocat"
 DATABASE_URL="[INSERT_DATABASE_URL]"
 GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
 GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"

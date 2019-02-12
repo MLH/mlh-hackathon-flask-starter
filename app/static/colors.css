@@ -1,0 +1,44 @@
+/* colors.css - A stylesheet for custom color classes */
+/* Colors came from Primer CSS */
+
+/* Classes for changing background colors */
+.bg-white         { background-color: #ffffff; }
+.bg-blue          { background-color: #0366d6; }
+.bg-blue-light    { background-color: #f1f8ff; }
+.bg-gray-dark     { background-color: #24292e; }
+.bg-gray          { background-color: #f6f8fa; }
+.bg-gray-light    { background-color: #fafbfc; }
+.bg-green         { background-color: #28a745; }
+.bg-green-light   { background-color: #dcffe4; }
+.bg-red           { background-color: #d73a49; }
+.bg-red-light     { background-color: #ffdce0; }
+.bg-yellow        { background-color: #ffd33d; }
+.bg-yellow-light  { background-color: #fff5b1; }
+.bg-purple        { background-color: #6f42c1; }
+.bg-purple-light  { background-color: #f5f0ff; }
+
+/* Classes for changing text colors */
+.text-blue          { color: #0366d6; }
+.text-red           { color: #cb2431; }
+.text-gray-light    { color: #6a737d; }
+.text-gray          { color: #586069; }
+.text-gray-dark     { color: #24292e; }
+.text-green         { color: #28a745; }
+.text-orange        { color: #a04100; }
+.text-orange-light  { color: #e36209; }
+.text-purple        { color: #6f42c1; }
+.text-white         { color: #ffffff; }
+.text-inherit       { color: inherit; }
+
+/* Classes for changing border colors */
+.border-blue        { border-color: #0366d6; }
+.border-blue-light  { border-color: #c8e1ff; }
+.border-green       { border-color: #34d058; }
+.border-green-light { border-color: #a2cbac; }
+.border-red         { border-color: #d73a49; }
+.border-red-light   { border-color: #cea0a5; }
+.border-purple      { border-color: #6f42c1; }
+.border-yellow      { border-color: #d9d0a5; }
+.border-gray-light  { border-color: #eaecef; }
+.border-gray-dark   { border-color: #d1d5da; }
+.border-black-fade  { border-color: rgba(27, 31, 35, 0.15); }

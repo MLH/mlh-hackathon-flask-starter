@@ -13,7 +13,7 @@ def index():
     if not 'access_token' in session:
         flash('This page needs an authenticated user. Please sign in with your GitHub account.', 'warning')
         with open('docs/USER_GUIDE.md', 'r') as input_file:
-            text = input_file.read()
+            text = input_file.read().decode('utf-8')
             content = markdown.render(text)
             return render_template('github/guide.html', body=content)
 
