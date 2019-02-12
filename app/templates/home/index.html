@@ -1,10 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block header %}
-  <div class='bg-blue-light text-gray-dark py-5'>
-    <div class='container py-5 my-5'>
-      <h1 class='h1 mb-1 text-blue-light'>Hackathon Flask Starter</h1>
-      <h2 class='h5 text-gray-light'>Presented by GitHub & MLH.</h2>
+  <div class='bg-blue-light border-bottom border-blue-light text-gray-dark' style='overflow:hidden;'>
+    <div class='container position-relative py-5'>
+      <div class='py-5 my-5'>
+        <h1 class='display-5 mb-1 text-blue-light'>Hackathon Flask Starter</h1>
+        <h2 class='lead text-gray-light'>Presented by GitHub & MLH.</h2>
+        <div class='position-absolute d-flex align-items-center' style='top:0;right:-100px;max-width:600px;'>
+          <img class='w-100' src="{{ url_for('static', filename='img/labtocat.png') }}" />
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}
