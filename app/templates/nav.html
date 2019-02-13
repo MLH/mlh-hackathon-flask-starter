@@ -1,32 +1,33 @@
-<nav class="navigation bg-gray-dark text-gray-light">
+<nav class="navigation bg-gray-dark text-white">
   <div class="container">
-    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center py-2">
       <div class="d-flex align-items-center justify-content-between justify-content-sm-start w-100">
-        <span class="nav-item text-white">
-          <a class="text-inherit" href="/">
+        <span class="lead pr-2 pt-1">📦</span>
+        <span class="text-white">
+          <a class="link-reset text-inherit pr-3" href="/">
             Project Name
+          </a>
+        </span>
+        <span class="nav-item">
+          <a class="nav-link text-inherit" href="{{ url_for('github.index') }}">
+            GitHub API
           </a>
         </span>
       </div>
       <div class="d-flex align-items-center justify-content-between justify-content-sm-end w-100">
-        <span class="nav-item p-2 m-1">
-          <a class="text-inherit" href="{{ url_for('github.index') }}">
-            GitHub API
-          </a>
-        </span>
         {% if g.user %}
-          <span class="nav-item p-2 d-flex align-items-center">
-            <img src="{{ g.user['avatar_url'] }}" class='rounded mr-2' style='width:24px; height:24px;'/>
+          <span class="d-flex align-items-center p-2 pr-3">
+            <img src="{{ g.user['avatar_url'] }}" class='rounded mr-2' style='width:24px;height:24px;'/>
             {{ g.user['username'] }}
           </span>
-        {% endif %}
-        {% if g.user %}
-          <span class="nav-item p-2 m-1">
-            <a class="text-inherit" href="{{ url_for('auth.logout') }}">Log out</a>
+          <span class="nav-item">
+            <a class="nav-link text-inherit" href="{{ url_for('auth.logout') }}">Log out</a>
           </span>
         {% else %}
-          <span class="nav-item p-2 m-1">
-            <a class="text-inherit" href="{{ url_for('auth.githubLogin') }}">Login with GitHub</a>
+          <span class="nav-item">
+            <a class="nav-link text-inherit" href="{{ url_for('auth.githubLogin') }}">
+              Login with GitHub
+            </a>
           </span>
         {% endif %}
       </div>
