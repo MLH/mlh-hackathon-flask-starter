@@ -2,7 +2,7 @@
 
 This is the User Guide for the Hackathon Starter Kit. Here you will find additional documentation and guides on how to use the project.
 
-If you think we are missing something or you have ideas for more guides that should be on this page, [let us know](mailto:hi@mlh.io) or [contribute some](/contributing)!
+If you think we are missing something or you have ideas for more guides that should be on this page, [let us know](mailto:hi@mlh.io) or [contribute some](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONTRIBUTING.md)!
 
 ## How It Works
 
@@ -13,25 +13,61 @@ Even if you are not using it for a hackathon, it should save you time getting st
 
 ## Starting the app
 
-You can run your application from your terminal using the `flask` command. To run the app locally, you need to tell Flask where to find your application, then run it in development mode.
-
-Development mode makes it easier to make changes to your application. It includes an interactive debugger and will restart the server whenever you make changes to the code.
-
-For Linux and Mac:
+**Step 1. Clone the code into a fresh folder**
 
 ```
-export FLASK_APP=app/app.py
-export FLASK_ENV=development
-flask run
+$ git clone https://github.com/MLH/mlh-hackathon-flask-starter.git
+$ cd mlh-hackathon-flask-starter
 ```
 
-For Windows Powershell, use `$env:` instead of `export`:
+**Step 2. Create a Virtual Environment and install Dependencies.**
+
+Create a new Virtual Environment for the project and activate it. If you don't have the `virtualenv` command yet, you can find installation [instructions here](https://virtualenv.readthedocs.io/en/latest/). Learn more about [Virtual Environments](http://flask.pocoo.org/docs/1.0/installation/#virtual-environments).
 
 ```
-$env:FLASK_APP = 'app/app.py'
-$env:FLASK_ENV = 'development'
-flask run
+$ virtualenv venv
+$ source venv/bin/activate
 ```
+
+Next, we need to install the project dependencies, which are listed in `requirements.txt`.
+
+```
+(venv) $ pip install -r requirements.txt
+```
+
+**Step 3: Create an app on GitHub**
+
+Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback url, which should be something like:
+
+```
+https://localhost:5000/auth/callback/github
+```
+
+The default port for Flask apps is `5000`, but you may need to update this if your setup uses a different port or if you're hosting your app somewhere besides your local machine.
+
+**Step 4: Update environment variables and run the Server.**
+
+Create a new file named `.env` by duplicating `.env.sample`. Update the new file with the GitHub credentials. It should look similar to this:
+
+```
+# .env file
+DATABASE_URL="[INSERT_DATABASE_URL]"
+GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
+GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"
+```
+
+You replace the GitHub credentials here and update the database url. Learn more about the required [Environment Variables here](#environment-variables).
+
+Now we're ready to start our server which is as simple as:
+
+```
+(venv) flask run
+```
+
+Open http://localhost:5000 to view it in your browser.
+
+The app will automatically reload if you make changes to the code.
+You will see the build errors and warnings in the console.
 
 ### `flask run`
 
@@ -110,7 +146,7 @@ $ python
 
 These type of requests can be made inside of your views to fetch and store data for your application. For example, you might make a request to GitHub's API and display it [directly in HTML](/github). Depending on your needs, you can also store this data to your database to use later.
 
-To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/nlaz/github-hackathon-starter/blob/master/app/views/github.py).
+To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/MLH/github-hackathon-starter/blob/master/app/views/github.py).
 
 ## Static Files
 
@@ -204,7 +240,7 @@ Heroku is an easy way for developers to deploy their application. To deploy to H
 
 Alternatively, you can use this button to create a new application on Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nlaz/mlh-hackathon-flask-starter)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/MLH/mlh-hackathon-flask-starter)
 
 
 # Support

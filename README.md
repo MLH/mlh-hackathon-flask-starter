@@ -3,8 +3,8 @@
 This is a hackathon boilerplate for new Flask web applications created by [Major League Hacking](https://github.com/MLH). It is for hackers looking to get started quickly on a new hackathon project using the Flask microframework.
 
 * [Installation Guide](#installation-guide) - How to get started with a new Flask app
-* [User Guide](/user-guide) - How to develop apps created with this starter project
-* [Contributing Guide](/contributing) - How to contribute to the project
+* [User Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/USER_GUIDE.md) - How to develop apps created with this starter project
+* [Contributing Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONTRIBUTING.md) - How to contribute to the project
 
 # <a name='installation-guide'>Installation Guide</a>
 
@@ -24,7 +24,6 @@ To get started, install Python and Postgres on your local computer, if you don't
 $ git clone https://github.com/MLH/mlh-hackathon-flask-starter.git
 $ cd mlh-hackathon-flask-starter
 ```
-
 
 **Step 2. Create a Virtual Environment and install Dependencies.**
 
@@ -87,8 +86,8 @@ You will see the build errors and warnings in the console.
 
 # Code of Conduct
 
-We enforce a Code of Conduct for all maintainers and contributors of this Guide. Read more in [CONDUCT.md](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/starter/docs/CONDUCT.md).
+We enforce a Code of Conduct for all maintainers and contributors of this Guide. Read more in [CONDUCT.md](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONDUCT.md).
 
 # License
 
-The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/nlaz/github-hackathon-starter/blob/master/LICENSE.md).
+The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/MLH/github-hackathon-starter/blob/master/LICENSE.md).
