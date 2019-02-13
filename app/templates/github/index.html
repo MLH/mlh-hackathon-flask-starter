@@ -34,7 +34,7 @@
       <div class="d-flex justify-content-between">
         <div class="d-flex flex-column">
           {% if item['owner'] %}
-            <a href="{{ item['html_url'] }}">
+            <a class='text-blue' href="{{ item['html_url'] }}">
               {{ item['owner']['login'] }} / <b>{{ item['name'] }}</b>
             </a>
             <small class="text-muted">
