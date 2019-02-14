@@ -7,17 +7,7 @@ blueprint = Blueprint('public', __name__)
 
 @blueprint.route('/')
 def index():
-    with open('README.md', 'r') as input_file:
-        text = input_file.read()
-        content = markdown.render(text)
-        return render_template('home/index.html', body=content)
-
-@blueprint.route('/user-guide')
-def user_guide():
-    with open('docs/USER_GUIDE.md', 'r') as input_file:
-        text = input_file.read().encode().decode('utf-8')
-        content = markdown.render(text)
-        return render_template('home/index.html', body=content)
+    return render_template('home/index.html')
 
 @blueprint.route('/contributing')
 def contributing():

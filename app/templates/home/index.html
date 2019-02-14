@@ -1,28 +1,25 @@
 {% extends 'layout.html' %}
 
+
 {% block header %}
-  <div class='bg-gray-light border-bottom text-gray-dark position-relative' style='overflow:hidden;'>
-    
-    {%include 'github-fork.html' %}
-
-    <div class='container position-relative py-5'>
-      <div class='py-md-5 my-lg-5'>
-        <h1 class='display-5 mb-1 text-blue-light'>Hackathon Flask Starter</h1>
-        <h2 class='lead text-gray-light'>Presented by GitHub & MLH.</h2>
-
-        <div class='d-none position-absolute d-lg-flex align-items-center' style='top:0;right:-100px;max-width:600px;'>
-          <img class='w-100' src="{{ url_for('static', filename='img/labtocat.png') }}" />
-        </div>
-
+<div class='bg-gray-light border-bottom text-gray-dark position-relative' style='overflow:hidden;'>
+  {%include 'fork.html' %}
+  <div class='container position-relative py-5'>
+    <div class='py-md-5 my-lg-5'>
+      <h1 class='display-5 mb-1 text-blue-light'>Hackathon Flask Starter</h1>
+      <h2 class='lead text-gray-light'>Presented by GitHub & MLH.</h2>
+      <div class='d-none position-absolute d-lg-flex align-items-center' style='top:0;right:-100px;max-width:600px;'>
+        <img class='w-100' src="{{ url_for('static', filename='img/labtocat.png') }}" />
       </div>
     </div>
   </div>
+</div>
 {% endblock %}
 
 {% block content %}
-  <div class='container py-5 my-3'>
-    {% if body %}
-      <div class='content markdown'>{{ body|safe }}</div>
-    {% endif %}
-  </div>
+<div class='container py-5 my-3'>
+  {% if body %}
+    <div class='content markdown'>{{ body|safe }}</div>
+  {% endif %}
+</div>
 {% endblock %}

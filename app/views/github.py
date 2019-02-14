@@ -12,10 +12,7 @@ blueprint = Blueprint('github', __name__, url_prefix='/github')
 def index():
     if not 'access_token' in session:
         flash('This page needs an authenticated user. Please sign in with your GitHub account.', 'warning')
-        with open('docs/USER_GUIDE.md', 'r') as input_file:
-            text = input_file.read().encode().decode('utf-8')
-            content = markdown.render(text)
-            return render_template('github/guide.html', body=content)
+        return render_template('github/index.html')
 
     github = GitHub(access_token=session['access_token'])
 
