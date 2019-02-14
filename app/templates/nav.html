@@ -1,36 +1,40 @@
-<nav class="navigation bg-gray-dark text-white">
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray-dark text-white">
   <div class="container">
-    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center py-2">
-      <div class="d-flex align-items-center justify-content-between justify-content-sm-start w-100">
-        <span class="lead pr-2 pt-1">📦</span>
-        <span class="text-white">
-          <a class="link-reset text-inherit pr-3" href="/">
-            Project Name
+    <a class="text-white link-reset text-inherit pr-3" href="/">
+      My Hackathon Project
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Examples
           </a>
-        </span>
-        <span class="nav-item">
-          <a class="nav-link text-inherit" href="{{ url_for('github.index') }}">
-            GitHub API
-          </a>
-        </span>
-      </div>
-      <div class="d-flex align-items-center justify-content-between justify-content-sm-end w-100">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ url_for('github.index' )}}">Fetching Data</a>
+            <a class="dropdown-item" href="#">Changing Data</a>
+          </div>
+        </li>
         {% if g.user %}
-          <span class="d-flex align-items-center p-2 pr-3">
+          <li class="nav-item p-2 pr-3">
             <img src="{{ g.user['avatar_url'] }}" class='rounded mr-2' style='width:24px;height:24px;'/>
             {{ g.user['username'] }}
-          </span>
-          <span class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-inherit" href="{{ url_for('auth.logout') }}">Log out</a>
-          </span>
+          </li>
         {% else %}
-          <span class="nav-item">
+          <li class="nav-item">
             <a class="nav-link text-inherit" href="{{ url_for('auth.githubLogin') }}">
               Login with GitHub
             </a>
-          </span>
+          </li>
         {% endif %}
-      </div>
+      </ul>
+
     </div>
   </div>
 </nav>
