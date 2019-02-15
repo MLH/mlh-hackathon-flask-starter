@@ -1,36 +1,30 @@
-{% extends "layout.html" %}
+{% extends "guides/base.html" %}
 {% from "guides/repo.html" import render_repo with context %}
 
-{% block header %}
-<div class="bg-dark text-light">
-  <div class="container text-center py-5 my-5">
-    <img src="{{ url_for('static', filename='logo.png') }}" class="w-100" style="max-width:115px;" />
-    <div class="mt-2 mb-4">
-      <h1 class="h1 mb-0">Searching Data</h1>
-      <h2 class="h4 font-weight-light text-gray-light">Learn how to find data on GitHub.</h2>
-    </div>
-    <a class="btn btn-outline-light" href="https://developer.github.com/v3/">Check GitHub API</u></a>
-  </div>
-</div>
-{% endblock %}
+{% block title %}Searching Data{% endblock %}
+{% block subtitle %}Learn how to find new repo on GitHub.{% endblock %}
 
-{% block content %}
-<div class="container py-5 my-5" style="max-width: 980px;">
-  <div class="border rounded p-5">
-  <div class="clearfix">
-    <h5 class="float-left py-1 m-0">Searching your starred repos</h5>
-    <button type="submit" class="float-right btn btn-primary btn-sm ml-1">Refresh</button>
+{% block container %}
+  <h5 class="py-1 m-0">Searching GitHub</h5>
+  <p class="text-gray mt-3 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique bibendum porta. In pulvinar, lorem molestie cursus consequat, augue tellus ultrices erat, vitae dictum nulla mauris ut libero.<p>
+  <div class="text-center mx-auto mb-3">
+    <form action="{{ url_for('guides.search') }}" method="get" class="d-flex">
+      <input name="query" class="form-control form-control-sm" placeholder="Search for repos" />
+      <button type="submit" class="btn btn-primary btn-sm ml-1">Search</button>
+    </form>
   </div>
-  <p class="text-gray mt-3 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique bibendum porta. In pulvinar, lorem molestie cursus consequat, augue tellus ultrices erat, vitae dictum nulla mauris ut libero.<p>
+
   {% if repos|length == 0 %}
-    <div class="bg-light py-5 text-center text-muted">
-      <p>No repos available.</p>
+    <div class="rounded bg-light p-5 text-center text-muted">
+      {% if g.user %}
+        <p>You can use the search bar above to find new projects.</p>
+      {% else %}
+        <p>Cannot find a repository that matches that input. Please try again.</p>
+      {% endif %}
     </div>
   {% endif %}
 
   {% for item in repos %}
     {{ render_repo(item, loop) }}
   {% endfor %}
-  </div>
-</div>
 {% endblock %}
