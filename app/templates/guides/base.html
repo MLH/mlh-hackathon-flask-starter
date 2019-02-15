@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <div class="bg-dark text-light">
+    <div class="container text-center py-5 my-5">
+      <img src="{{ url_for('static', filename='logo.png') }}" class="w-100" style="max-width:115px;" />
+      <div class="mt-2 mb-4">
+        <h1 class="h1 mb-0">{% block title %}{% endblock %}</h1>
+        <h2 class="h4 font-weight-light text-gray-light">{% block subtitle %}{% endblock %}</h2>
+      </div>
+      <a class="btn btn-outline-light" href="https://developer.github.com/v3/">Check GitHub API</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container py-5 my-5" style="max-width: 980px;">
+    <div class="border rounded p-5">
+      {% block container %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}

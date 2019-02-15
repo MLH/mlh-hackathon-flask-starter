@@ -33,12 +33,12 @@ def githubCallback():
     session['access_token'] = access_token
     session['user_id'] = user.id
 
-    return redirect(url_for('public.index'))
+    return redirect(url_for('home.index'))
 
 @blueprint.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('public.index'))
+    return redirect(url_for('home.index'))
 
 @blueprint.before_app_request
 def get_current_user():

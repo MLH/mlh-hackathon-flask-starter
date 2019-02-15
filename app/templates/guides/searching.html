@@ -1,0 +1,36 @@
+{% extends "guides/base.html" %}
+{% from "guides/repo.html" import render_repo with context %}
+
+{% block title %}Searching Data{% endblock %}
+{% block subtitle %}Learn how to find new repo on GitHub.{% endblock %}
+
+{% block container %}
+  <h5 class="py-1 m-0">Searching GitHub</h5>
+  <p>You can search for data with the GitHub API using the <code>services/github.py</code> module. This makes it easier to make the authenticated request. We are making a request to the <code>/search/repositories</code> endpoint.<p>
+  <p>A GET request to this endpoint using the <code>github.py</code> module looks like:</p>
+  <pre class="bg-light rounded"><code>
+    github = GitHub(access_token=session['access_token'])
+    results = github.get('/search/repositories')
+  </code></pre>
+  <p>As a result, you will see your starred repositories below:</p>
+  <div class="text-center mx-auto mb-3">
+    <form action="{{ url_for('guides.search') }}" method="get" class="d-flex">
+      <input name="query" class="form-control form-control-sm" placeholder="Search for repos" />
+      <button type="submit" class="btn btn-primary btn-sm ml-1">Search</button>
+    </form>
+  </div>
+
+  {% if repos|length == 0 %}
+    <div class="rounded bg-light p-5 text-center text-muted">
+      {% if g.user %}
+        <p class="m-4">You can use the search bar above to find new projects.</p>
+      {% else %}
+        <p class="m-4">Cannot find a repository that matches that input. Please try again.</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% for item in repos %}
+    {{ render_repo(item, loop) }}
+  {% endfor %}
+{% endblock %}

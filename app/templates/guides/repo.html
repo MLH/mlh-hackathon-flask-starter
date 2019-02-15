@@ -1,0 +1,15 @@
+{% macro render_repo(item, loop) %}
+  <div class="border-bottom {{ 'border-top' if loop.first }}">
+    <div class="d-flex flex-column m-3">
+      <a class="text-blue" href="{{ item['html_url'] }}">
+        {{ item["owner"]["login"] }} / <b>{{ item["name"] }}</b>
+      </a>
+      <small class="text-gray">{{ item["description"] }}</small>
+      <div class="mt-2">
+        <small class="text-gray mr-3">{{ item["language"] }}</small>
+        <small class="text-gray mr-3">{{ item["stargazers_count"] }} Stars</small>
+        <small class="text-gray mr-3">{{ item["forks_count"] }} Forks</small>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
