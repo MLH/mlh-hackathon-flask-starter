@@ -1,2 +1,2 @@
 """Views package"""
-from . import auth, github, public
+from . import auth, guides, home

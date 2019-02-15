@@ -154,9 +154,9 @@ Flask automatically adds a `static` view that serves files located in the `/stat
 
 ```
 static/
-├── vendor/
-│   └── markdown.min.css
 ├── favicon.ico
+├── color.css
+├── logo.png
 └── style.css
 ```
 
