@@ -17,9 +17,9 @@
   {% if repos|length == 0 %}
     <div class="rounded bg-light p-5 text-center text-muted">
       {% if g.user %}
-        <p>You can use the search bar above to find new projects.</p>
+        <p class="m-4">You can use the search bar above to find new projects.</p>
       {% else %}
-        <p>Cannot find a repository that matches that input. Please try again.</p>
+        <p class="m-4">Cannot find a repository that matches that input. Please try again.</p>
       {% endif %}
     </div>
   {% endif %}
