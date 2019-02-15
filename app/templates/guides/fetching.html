@@ -6,14 +6,13 @@
 
 {% block container %}
   <h5 class="py-1 m-0">Fetching your starred repos</h5>
-  <p>You can request data from the GitHub API using the <code>services/github.py</code> module. This makes it easier to make authenticated requests.<p>
-  <p>To fetch data from the API, you can use this module to make a GET request.</p>
-  <pre class="bg-light rounded">
-    <code>
-      github = GitHub(access_token=session['access_token'])
-      results = github.get('/user/starred')
-    </code>
-  </pre>
+  <p>You can request data from the GitHub API using the <code>services/github.py</code> module. This makes it easier to make the authenticated request. We are making a request to the <code>/user/starred</code> endpoint.<p>
+  <p>A GET request to this endpoint using the <code>github.py</code> module looks like:</p>
+  <pre class="bg-light rounded"><code>
+    github = GitHub(access_token=session['access_token'])
+    results = github.get('/user/starred')
+  </code></pre>
+  <p>As a result, you will see your starred repositories below:</p>
   {% if repos|length == 0 %}
     <div class="bg-light rounded p-5 text-center text-muted">
       {% if g.user %}

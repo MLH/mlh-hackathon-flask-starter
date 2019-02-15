@@ -6,7 +6,13 @@
 
 {% block container %}
   <h5 class="py-1 m-0">Searching GitHub</h5>
-  <p class="text-gray mt-3 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tristique bibendum porta. In pulvinar, lorem molestie cursus consequat, augue tellus ultrices erat, vitae dictum nulla mauris ut libero.<p>
+  <p>You can search for data with the GitHub API using the <code>services/github.py</code> module. This makes it easier to make the authenticated request. We are making a request to the <code>/search/repositories</code> endpoint.<p>
+  <p>A GET request to this endpoint using the <code>github.py</code> module looks like:</p>
+  <pre class="bg-light rounded"><code>
+    github = GitHub(access_token=session['access_token'])
+    results = github.get('/search/repositories')
+  </code></pre>
+  <p>As a result, you will see your starred repositories below:</p>
   <div class="text-center mx-auto mb-3">
     <form action="{{ url_for('guides.search') }}" method="get" class="d-flex">
       <input name="query" class="form-control form-control-sm" placeholder="Search for repos" />
