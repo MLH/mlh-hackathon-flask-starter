@@ -11,11 +11,11 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Examples
+            Guides
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url_for('github.index' )}}">Fetching Data</a>
-            <a class="dropdown-item" href="#">Changing Data</a>
+            <a class="dropdown-item" href="{{ url_for('github.fetching' )}}">Fetching Data</a>
+            <a class="dropdown-item" href="{{ url_for('github.searching' )}}">Searching Data</a>
           </div>
         </li>
         {% if g.user %}

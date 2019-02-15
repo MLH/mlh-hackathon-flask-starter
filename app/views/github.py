@@ -6,10 +6,10 @@ from app.views.auth import login_required
 from app.services.github import GitHub
 from app.extensions import markdown
 
-blueprint = Blueprint('github', __name__, url_prefix='/github')
+blueprint = Blueprint('github', __name__)
 
-@blueprint.route('/')
-def index():
+@blueprint.route('/fetching')
+def fetching():
     if not 'access_token' in session:
         flash('This page needs an authenticated user. Please sign in with your GitHub account.', 'warning')
         return render_template('github/index.html')
@@ -17,7 +17,18 @@ def index():
     github = GitHub(access_token=session['access_token'])
 
     starred_repos = github.get('/user/starred')
-    return render_template('github/index.html', repos=starred_repos)
+    return render_template('github/fetching.html', repos=starred_repos[:5])
+
+@blueprint.route('/searching')
+def searching():
+    if not 'access_token' in session:
+        flash('This page needs an authenticated user. Please sign in with your GitHub account.', 'warning')
+        return render_template('github/index.html')
+
+    github = GitHub(access_token=session['access_token'])
+
+    starred_repos = github.get('/user/starred')
+    return render_template('github/searching.html', repos=starred_repos[:5])
 
 @blueprint.route('/search')
 def search():

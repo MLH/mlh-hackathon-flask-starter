@@ -1,25 +1,30 @@
-{% extends 'layout.html' %}
-
+{% extends "layout.html" %}
 
 {% block header %}
-<div class='bg-gray-light border-bottom text-gray-dark position-relative' style='overflow:hidden;'>
-  {%include 'fork.html' %}
-  <div class='container position-relative py-5'>
-    <div class='py-md-5 my-lg-5'>
-      <h1 class='display-5 mb-1 text-blue-light'>Hackathon Flask Starter</h1>
-      <h2 class='lead text-gray-light'>Presented by GitHub & MLH.</h2>
-      <div class='d-none position-absolute d-lg-flex align-items-center' style='top:0;right:-100px;max-width:600px;'>
-        <img class='w-100' src="{{ url_for('static', filename='img/labtocat.png') }}" />
-      </div>
+<div class="bg-gray-light border-bottom border-gray-light">
+  <div class="container text-center py-5 mb-5">
+    <div class="mb-4">
+      <a href="https://github.com/MLH/mlh-hackathon-flask-starter"><img src="https://img.shields.io/github/stars/MLH/mlh-hackathon-flask-starter.svg?style=social"/></a>
+      <a href="https://github.com/MLH/mlh-hackathon-flask-starter/fork"><img src="https://img.shields.io/github/forks/MLH/mlh-hackathon-flask-starter.svg?style=social"/></a>
     </div>
+    <img src="{{ url_for('static', filename='img/package.png') }}" class="w-100" style="max-width:115px;" />
+    <div class="mt-2 mb-4">
+      <h1 class="h1 mb-0">Hackathon Flask Starter</h1>
+      <h2 class="h4 text-gray font-weight-light">Build your hackathon project faster.</h2>
+    </div>
+    <a class="btn btn-primary" href="https://github.com/MLH/mlh-hackathon-flask-starter">
+      Check the Docs
+    </a>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class='container py-5 my-3'>
-  {% if body %}
-    <div class='content markdown'>{{ body|safe }}</div>
-  {% endif %}
+<div class="text-gray-light py-5 my-5">
+  <div class="container text-center py-5">
+    <p class="lead">Edit <code>templates/</code> to update the layout and styling.</p>
+    <p class="lead">Edit <code>models/</code> to update how the data is stored.</p>
+    <p class="lead">Edit <code>views/</code> to update the controller layer.</p>
+  </div>
 </div>
 {% endblock %}

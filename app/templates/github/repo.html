@@ -1,0 +1,25 @@
+{% macro render_repo(item, loop) %}
+  <div class="d-flex justify-content-between border-bottom {{ 'border-top' if loop.first }}">
+    <div class="d-flex flex-column m-3">
+      {% if item['owner'] %}
+        <a class='text-blue' href="{{ item['html_url'] }}">
+          {{ item['owner']['login'] }} / <b>{{ item['name'] }}</b>
+        </a>
+        <small class="text-muted">
+          {{ item['description'] }}
+        </small>
+        <div class="d-flex mt-2 align-items-center">
+          <small class="text-muted mr-3 d-flex align-items-center">
+            {{ item['language'] }}
+          </small>
+          <small class="text-muted mr-3">
+            {{ item['stargazers_count'] }} Stars
+          </small>
+          <small class="text-muted mr-3">
+            {{ item['forks_count'] }} Forks
+          </small>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
