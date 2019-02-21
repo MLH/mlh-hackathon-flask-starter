@@ -11,21 +11,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='colors.css') }}" >
     {% endblock %}
   </head>
-  <body class='d-flex flex-column' style='min-height: 100vh;'>
+  <body>
     {% include 'nav.html' %}
 
     {% include 'flash.html' %}
 
     {% block header %}{% endblock %}
 
-    <div class='content' style='flex-grow: 1;'>
-      {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
 
     {% block footer %}{% endblock %}
+
+    <!-- Scripts for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
