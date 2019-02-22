@@ -6,7 +6,7 @@ If you think we are missing something or you have ideas for more guides that sho
 
 ## How It Works
 
-This project simply provides the boilerplate to get started with a new Flask application. It provides the tools and guides to get started quickly. You can use this project as a starting point to building new applications during a hackathon.
+This project simply provides the boilerplate to get started with a new Flask application. It provides the tools and guides to get started quickly. You can use this project as a starting point for building new applications during a hackathon.
 
 Even if you are not using it for a hackathon, it should save you time getting started building and learning Flask development.
 
@@ -37,7 +37,7 @@ Next, we need to install the project dependencies, which are listed in `requirem
 
 **Step 3: Create an app on GitHub**
 
-Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback url, which should be something like:
+Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback URL, which should be something like:
 
 ```
 https://localhost:5000/auth/callback/github
@@ -56,7 +56,7 @@ GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
 GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"
 ```
 
-You replace the GitHub credentials here and update the database url. Learn more about the required [Environment Variables here](#environment-variables).
+You replace the GitHub credentials here and update the database URL. Learn more about the required [Environment Variables here](#environment-variables).
 
 Now we're ready to start our server which is as simple as:
 
@@ -130,7 +130,7 @@ The tradeoff is that you have to go through the [GitHub OAuth flow](https://deve
 5. Your app uses GitHub's API with the stored access token.
 
 The code that handles this process is contained in `views/auth.py` and `services/github.py`.
-To use this authentication technique you need to setup a new GitHub OAuth app. [Instructions listed below](#github-oauth).
+To use this authentication technique you need to create a new GitHub OAuth app. [Instructions listed below](#github-oauth).
 
 ## Fetching Data
 
@@ -212,7 +212,7 @@ GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
 GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"
 ```
 
-The `DATABASE_URL` variable is the path to your database system. This is where you can add the url to your PostgreSQL.
+The `DATABASE_URL` variable is the path to your database system. This is where you can add the URL to your PostgreSQL.
 
 The `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` variables are the app credentials from your [GitHub OAuth app](https://github.com/settings/developers).
 

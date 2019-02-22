@@ -14,7 +14,7 @@ This project requires the following tools:
 * PostgreSQL - A relational database system.
 * Virtualenv - A tool for creating isolated Python environments.
 
-To get started, install Python and Postgres on your local computer, if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
+To get started, install Python and Postgres on your local computer if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ Next, we need to install the project dependencies, which are listed in `requirem
 
 **Step 3: Create an app on GitHub**
 
-Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback url, which should be something like:
+Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback URL, which should be something like:
 
 ```
 https://localhost:5000/auth/callback/github
@@ -61,7 +61,7 @@ GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
 GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"
 ```
 
-You replace the GitHub credentials here and update the database url. Learn more about the required [Environment Variables here](#environment-variables).
+You replace the GitHub credentials here and update the database URL. Learn more about the required [Environment Variables here](#environment-variables).
 
 Now we're ready to start our server which is as simple as:
 
@@ -80,7 +80,7 @@ You will see the build errors and warnings in the console.
 * [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask extension for making modular applications
 * [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
 * [Flask-Misaka](https://flask-misaka.readthedocs.io) - A Flask extension that supports rendering markdown into HTML.
-* [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling server requests.
+* [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling requests.
 * [Bootstrap 4](https://getbootstrap.com/) - An open source design system for HTML, CSS, and JS.
 * [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A templating language for Python, used by Flask.
 
