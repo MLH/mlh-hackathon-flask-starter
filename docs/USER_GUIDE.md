@@ -92,7 +92,7 @@ mlh-hackathon-flask-starter/
 ├── build/
 ├── docs/
 └── app/
-  ├── views/
+  ├── controllers/
   │   ├── auth.py
   │   ├── github.py
   │   └── public.py
@@ -129,7 +129,7 @@ The tradeoff is that you have to go through the [GitHub OAuth flow](https://deve
 4. Your app sends a request for the user access token.
 5. Your app uses GitHub's API with the stored access token.
 
-The code that handles this process is contained in `views/auth.py` and `services/github.py`.
+The code that handles this process is contained in `controllers/auth.py` and `services/github.py`.
 To use this authentication technique you need to create a new GitHub OAuth app. [Instructions listed below](#github-oauth).
 
 ## Fetching Data
@@ -144,7 +144,7 @@ $ python
 ... Prints out results from GitHub
 ```
 
-These type of requests can be made inside of your views to fetch and store data for your application. For example, you might make a request to GitHub's API and display it [directly in HTML](/github). Depending on your needs, you can also store this data to your database to use later.
+These type of requests can be made inside of your controllers to fetch and store data for your application. For example, you might make a request to GitHub's API and display it [directly in HTML](/github). Depending on your needs, you can also store this data to your database to use later.
 
 To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/MLH/github-hackathon-starter/blob/master/app/views/github.py).
 
@@ -160,7 +160,7 @@ static/
 └── style.css
 ```
 
-The `style.css` file is a good place to add custom CSS. The `markdown.min.css` handles some default styling for the markdown guides for the project. Add any of your CSS or JavaScript in this folder.
+The `style.css` file is a good place to add custom CSS. Add any of your CSS or JavaScript in this folder.
 
 ## Saving to a Database
 
