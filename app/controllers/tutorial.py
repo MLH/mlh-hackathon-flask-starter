@@ -2,7 +2,6 @@
 from flask import redirect, render_template, request
 from flask import g, Blueprint, flash, url_for, session
 
-from app.views.auth import login_required
 from app.services.github import GitHub
 
 blueprint = Blueprint('tutorial', __name__, url_prefix='/tutorial')

@@ -1,2 +1,4 @@
 """Controllers package"""
-from . import auth, tutorial, home
+from . import auth
+from . import tutorial
+from . import home
