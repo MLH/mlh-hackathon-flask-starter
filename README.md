@@ -2,17 +2,17 @@
 
 This is a hackathon boilerplate for new Flask web applications created by [Major League Hacking](https://github.com/MLH). It is for hackers looking to get started quickly on a new hackathon project using the Flask microframework.
 
-* [Installation Guide](#installation-guide) - How to get started with a new Flask app
-* [User Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/USER_GUIDE.md) - How to develop apps created with this starter project
-* [Contributing Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONTRIBUTING.md) - How to contribute to the project
+- [Installation Guide](#installation-guide) - How to get started with a new Flask app
+- [User Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/USER_GUIDE.md) - How to develop apps created with this starter project
+- [Contributing Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONTRIBUTING.md) - How to contribute to the project
 
 # <a name='installation-guide'>Installation Guide</a>
 
 This project requires the following tools:
 
-* Python - The programming language used by Flask.
-* PostgreSQL - A relational database system.
-* Virtualenv - A tool for creating isolated Python environments.
+- Python - The programming language used by Flask.
+- PostgreSQL - A relational database system.
+- Virtualenv - A tool for creating isolated Python environments.
 
 To get started, install Python and Postgres on your local computer if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
 
@@ -66,7 +66,7 @@ You replace the GitHub credentials here and update the database URL. Learn more 
 Now we're ready to start our server which is as simple as:
 
 ```
-(venv) flask run
+(venv) $ flask run
 ```
 
 Open http://localhost:5000 to view it in your browser.
@@ -76,12 +76,12 @@ You will see the build errors and warnings in the console.
 
 # What's Included?
 
-* [Flask](http://flask.pocoo.org/) - A microframework for Python web applications
-* [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask extension for making modular applications
-* [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
-* [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling requests.
-* [Bootstrap 4](https://getbootstrap.com/) - An open source design system for HTML, CSS, and JS.
-* [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A templating language for Python, used by Flask.
+- [Flask](http://flask.pocoo.org/) - A microframework for Python web applications
+- [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask extension for making modular applications
+- [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
+- [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling requests.
+- [Bootstrap 4](https://getbootstrap.com/) - An open source design system for HTML, CSS, and JS.
+- [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A templating language for Python, used by Flask.
 
 # Code of Conduct
 

@@ -10,7 +10,6 @@ This project simply provides the boilerplate to get started with a new Flask app
 
 Even if you are not using it for a hackathon, it should save you time getting started building and learning Flask development.
 
-
 ## Starting the app
 
 **Step 1. Clone the code into a fresh folder**
@@ -101,17 +100,20 @@ mlh-hackathon-flask-starter/
   ├── services/
   │   └── github.py
   ├── static/
-  │   ├── vendor/
-  │   └── style.css
+  │   ├── css/
+  │   ├── img/
+  │   └── favicon.ico
   ├── templates/
-  │   ├── github/
-  │   └── home/
+  │   ├── home/
+  │   ├── layouts/
+  │   ├── partials/
+  │   └── tutorial/
   ├── app.py
   ├── extensions.py
   └── settings.py
 ```
 
-The core of the Flask app is contained within the `app` directory. It contains `app.py`, the code to create and run the app, `/views`, handles all the endpoints and business logic, `/models`, handles all the features for the data models like users, `/templates`, contains the templates for [Jinja](http://jinja.pocoo.org/docs/2.10/)-based layouts, and `/static`, contains all the static assets. You can learn more about [the structure of Flask apps here](http://flask.pocoo.org/docs/1.0/tutorial/layout/).
+The core of the Flask app is contained within the `app` directory. It contains `app.py`, the code to create and run the app, `/controllers`, handles all the endpoints and business logic, `/models`, handles all the features for the data models like users, `/templates`, contains the templates for [Jinja](http://jinja.pocoo.org/docs/2.10/)-based layouts, and `/static`, contains all the static assets. You can learn more about [the structure of Flask apps here](http://flask.pocoo.org/docs/1.0/tutorial/layout/).
 
 ## Flask Development
 
@@ -123,7 +125,7 @@ This project uses GitHub OAuth to handle user authentication. Meaning a new user
 
 The tradeoff is that you have to go through the [GitHub OAuth flow](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/) with your application. This process is pretty simple:
 
-1. Users clicked **Sign in with GitHub**.
+1. Users clicked **Login with GitHub**.
 2. Users are redirected to GitHub.com to request their identity.
 3. Users grant permission to your app and are redirected back to your site.
 4. Your app sends a request for the user access token.
@@ -144,9 +146,9 @@ $ python
 ... Prints out results from GitHub
 ```
 
-These type of requests can be made inside of your controllers to fetch and store data for your application. For example, you might make a request to GitHub's API and display it [directly in HTML](/github). Depending on your needs, you can also store this data to your database to use later.
+These type of requests can be made inside of your controllers to fetch and store data for your application. For example, you might make a request to GitHub's API and display it directly in HTML. Depending on your needs, you can also store this data to your database to use later.
 
-To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/MLH/github-hackathon-starter/blob/master/app/views/github.py).
+To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/app/controllers/github.py).
 
 ## Static Files
 
@@ -154,10 +156,12 @@ Flask automatically adds a `static` view that serves files located in the `/stat
 
 ```
 static/
-├── favicon.ico
-├── color.css
-├── logo.png
-└── style.css
+  ├── css/
+  |  ├── color.css
+  |  └── style.css
+  ├── img/
+  |  └── logo.png
+  └── favicon.ico
 ```
 
 The `style.css` file is a good place to add custom CSS. Add any of your CSS or JavaScript in this folder.
@@ -165,14 +169,15 @@ The `style.css` file is a good place to add custom CSS. Add any of your CSS or J
 ## Saving to a Database
 
 ### Using Postgres
+
 Flask does not come with a database layer by default. It is designed to have a database added later. You can add your own preferred database type to the project if needed. We like the PostgreSQL database which is easy to deploy with Heroku.
 
 To use PostgreSQL with your project, you will need to [install it locally](https://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.4).
 
-1. Install [Postgres locally](https://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.4)*
+1. Install [Postgres locally](https://wiki.postgresql.org/wiki/What's_new_in_PostgreSQL_9.4)\*
 2. Make sure Postgres is running locally.
 3. Replace the `DATABASE_URL` variable in `.env` with your database.
-    * i.e. `DATABASE_URL=postgresql://localhost:5432/mlh-hackathon-flask-starter`
+   - i.e. `DATABASE_URL=postgresql://localhost:5432/mlh-hackathon-flask-starter`
 
 \* A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/).
 
@@ -195,14 +200,15 @@ This project uses a GitHub OAuth app for Authentication and uses GitHub's API. T
 1. Register an account on Github.com.
 2. Visit the [GitHub OAuth apps page](https://github.com/settings/developers).
 3. Create a new OAuth app.
-    * Enter an application name and a homepage URL.
-    * Add callback URL, use http://localhost:5000/ for local development.
-    * Click 'Register application'.
+   - Enter an application name and a homepage URL.
+   - Add callback URL, use http://localhost:5000/ for local development.
+   - Click 'Register application'.
 4. Add your GitHub credentials to your environment variables in `.env`.
-    * Replace `[INSERT_CLIENT_ID]` with your GitHub Client ID.
-    * Replace `[INSERT_CLIENT_SECRET]` with your GitHub Client Secret.
+   - Replace `[INSERT_CLIENT_ID]` with your GitHub Client ID.
+   - Replace `[INSERT_CLIENT_SECRET]` with your GitHub Client Secret.
 
 ## <a name='environment-variables'>Environment Variables</a>
+
 To run the project, you need to configure the application to run locally. This will require updating a set of environment variables specific to your environment. Create a new file named `.env` by duplicating `.env.sample`. Update the new file with the GitHub credentials. It should look similar to this:
 
 ```
@@ -216,7 +222,6 @@ The `DATABASE_URL` variable is the path to your database system. This is where y
 
 The `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` variables are the app credentials from your [GitHub OAuth app](https://github.com/settings/developers).
 
-
 ```
 # .flaskenv file
 FLASK_APP='app/app.py'
@@ -224,7 +229,6 @@ FLASK_ENV='development'
 ```
 
 The `FLASK_APP` and `FLASK_ENV` variables are needed for running the application locally. The `SECRET_KEY` variable is used to manage the server sessions.
-
 
 ## Deployment
 
@@ -241,7 +245,6 @@ Heroku is an easy way for developers to deploy their application. To deploy to H
 Alternatively, you can use this button to create a new application on Heroku:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/MLH/mlh-hackathon-flask-starter)
-
 
 # Support
 
