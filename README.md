@@ -79,7 +79,6 @@ You will see the build errors and warnings in the console.
 * [Flask](http://flask.pocoo.org/) - A microframework for Python web applications
 * [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask extension for making modular applications
 * [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
-* [Flask-Misaka](https://flask-misaka.readthedocs.io) - A Flask extension that supports rendering markdown into HTML.
 * [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling requests.
 * [Bootstrap 4](https://getbootstrap.com/) - An open source design system for HTML, CSS, and JS.
 * [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A templating language for Python, used by Flask.
@@ -90,4 +89,4 @@ We enforce a Code of Conduct for all maintainers and contributors of this Guide.
 
 # License
 
-The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/MLH/github-hackathon-starter/blob/master/LICENSE.md).
+The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/LICENSE.md).

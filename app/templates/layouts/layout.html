@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    {% block head %}
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <title>My Hackathon Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
-    <link rel="stylesheet" href="{{ url_for('static', filename='colors.css') }}" >
-    {% endblock %}
   </head>
   <body>
-    {% include 'nav.html' %}
+    {% include "partials/header.html" %}
 
-    {% include 'flash.html' %}
+    {% include "partials/flash.html" %}
 
     {% block header %}{% endblock %}
 
     {% block content %}{% endblock %}
 
-    {% block footer %}{% endblock %}
+    {% include "partials/footer.html" %}
 
     <!-- Scripts for Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
