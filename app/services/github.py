@@ -1,7 +1,5 @@
 import requests, json
 
-from flask import flash
-
 api_url = 'https://api.github.com'
 authorize_url = 'https://github.com/login/oauth/authorize'
 token_url = 'https://github.com/login/oauth/access_token'

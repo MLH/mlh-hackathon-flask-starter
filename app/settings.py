@@ -1,4 +1,4 @@
-"""Settings configuration."""
+"""Settings configuration - Configuration for environment variables can go in here."""
 
 import os
 from dotenv import load_dotenv
