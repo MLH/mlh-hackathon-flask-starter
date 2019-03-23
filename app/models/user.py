@@ -28,19 +28,5 @@ class User(db.Model):
 
         return instance
 
-    @staticmethod
-    def find_or_create_from_token(access_token):
-        data = GitHub.get_user_from_token(access_token)
-
-        """Find existing user or create new User instance"""
-        instance = User.query.filter_by(username=data['login']).first()
-
-        if not instance:
-            instance = User(data['login'], data['avatar_url'], data['id'])
-            db.session.add(instance)
-            db.session.commit()
-
-        return instance
-
     def __repr__(self):
         return "<User: {}>".format(self.username)
