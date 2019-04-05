@@ -52,7 +52,7 @@ The default port for Flask apps is `5000`, but you may need to update this if yo
 
 **Step 4: Update environment variables and run the Server.**
 
-Create a new file named `.env` by duplicating `.env.sample`. Update the new file with the GitHub credentials. It should look similar to this:
+Create a new file named `.env` by duplicating `.env.example`. Update the new file with the GitHub credentials. It should look similar to this:
 
 ```
 # .env file
