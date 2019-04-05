@@ -1,3 +1,6 @@
+# Adding .env to Avoid accidental .env checkin
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
