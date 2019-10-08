@@ -45,7 +45,7 @@ Next, we need to install the project dependencies, which are listed in `requirem
 Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback URL, which should be something like:
 
 ```
-https://localhost:5000/auth/callback/github
+http://localhost:5000/auth/callback/github
 ```
 
 The default port for Flask apps is `5000`, but you may need to update this if your setup uses a different port or if you're hosting your app somewhere besides your local machine.
