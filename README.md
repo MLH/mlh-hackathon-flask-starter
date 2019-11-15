@@ -2,7 +2,7 @@
 MLH Hackathon Flask Starter
 </h1>
 
-<img src="https://user-images.githubusercontent.com/9976294/68910501-f7bd9980-071f-11ea-8b24-3f57d2aee733.png" alt="Screencapture" align="center"/>
+<img src="https://user-images.githubusercontent.com/9976294/68911917-91874580-0724-11ea-83fc-235666e0f422.png" alt="Screencapture" align="center"/>
 
 
 <h2 align="center">
