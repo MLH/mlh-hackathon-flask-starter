@@ -17,9 +17,9 @@ MLH Hackathon Flask Starter
 
 1. [Introduction](#1-introduction)
 2. [Installation Guide](#2-installation-guide)
-3. [What's Included?](#3-whats-included?)
-4. [Code of Conduct](#4-license)
-5. [License](#5-references)
+3. [What's Included?](#3-whats-included)
+4. [Code of Conduct](#4-code-of-conduct)
+5. [License](#5-license)
 
 </details>
 <!-- ⛔️ MD-MAGIC-EXAMPLE:END -->
