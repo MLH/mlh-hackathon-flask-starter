@@ -6,7 +6,7 @@ MLH Hackathon Flask Starter
 
 
 <h2 align="center">
-<a href="https://hackathon-starter-python.herokuapp.com/">Live Demo</a>
+<a href="https://hackathon-starter-python.herokuapp.com/">> View Demo <</a>
 </h2>
 
 
