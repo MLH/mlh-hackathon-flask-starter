@@ -2,7 +2,7 @@
 MLH Hackathon Flask Starter
 </h1>
 
-<img src="https://user-images.githubusercontent.com/9976294/68911917-91874580-0724-11ea-83fc-235666e0f422.png" alt="Screencapture" align="center"/>
+<img src="https://user-images.githubusercontent.com/9976294/68912486-4837f580-0726-11ea-93d5-46d10f866775.png" alt="Screencapture" align="center"/>
 
 
 <h2 align="center">
@@ -42,7 +42,7 @@ This project requires the following tools:
 
 To get started, install Python and Postgres on your local computer if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
 
-### 2.1 Getting Started
+### Getting Started
 
 **Step 1. Clone the code into a fresh folder**
 
