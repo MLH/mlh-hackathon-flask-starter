@@ -3,7 +3,7 @@
 {% block header %}
     <div class="bg-gray-light border-bottom border-gray-light">
         <div class="container text-center py-5 mb-4">
-            <img src="{{ url_for('static', filename='img/produce.png') }}" class="w-1000" style="max-width:240px;"/>
+            <img src="{{ url_for('static', filename='img/imfull_logo.png') }}" class="w-1000" style="max-width:240px;"/>
             <div class="mt-3 mb-4">
                 <h1 class="h1 mb-0">i'm full</h1>
                 <h2 class="h4 text-gray font-weight-light">feed families with the food you don't eat</h2>
@@ -13,7 +13,7 @@
                     <div class="col-sm">
                         <form>
                             <fieldset>
-                                <img src="{{ url_for('static', filename='img/imfull_logo.png') }}" class="w-1000" style="max-width:240px;"/>
+                                <img src="{{ url_for('static', filename='img/produce.png') }}" class="w-1000" style="max-width:240px;"/>
                                 <legend>produce</legend>
                                 <p>
                                     <label>Select list</label>
@@ -29,6 +29,7 @@
                     <div class="col-sm">
                         <form>
                             <fieldset>
+                                <img src="{{ url_for('static', filename='img/meat.png') }}" class="w-1000" style="max-width:240px;"/>
                                 <legend>meat</legend>
                                 <p>
                                     <label>Select list</label>
@@ -47,6 +48,7 @@
                 <div class="col-sm">
                     <form>
                         <fieldset>
+                            <img src="{{ url_for('static', filename='img/dairy.png') }}" class="w-1000" style="max-width:240px;"/>
                             <legend>dairy</legend>
                             <p>
                                 <label>Select list</label>
@@ -64,6 +66,7 @@
                         <fieldset>
                             <legend>wheat</legend>
                             <p>
+                                <img src="{{ url_for('static', filename='img/wheat.png') }}" class="w-1000" style="max-width:240px;"/>
                                 <label>Select list</label>
                                 <select id="myList4">
                                     <option value="1">bagels</option>
