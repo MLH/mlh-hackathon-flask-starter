@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-gray-dark text-white">
   <div class="container">
     <a class="text-white link-reset text-inherit pr-3" href="/">
-      My Hackathon Project
+      <img src="{{ url_for('static', filename='img/logo.png') }}" style="width:42px" alt="Imfull">
+      Im<strong>full</strong>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,10 +12,11 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Tutorials
+            Bites
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url_for('tutorial.requesting' )}}">Requesting Data</a>
+            <a class="dropdown-item" href="{{ url_for('tutorial.history' )}}">Ort Report</a>
+            <a class="dropdown-item" href="{{ url_for('tutorial.contribute' )}}"><code>Contribute</code></a>
           </div>
         </li>
         {% if g.user %}
