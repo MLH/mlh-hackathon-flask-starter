@@ -6,7 +6,7 @@
 
 {% block container %}
   <h4 class="py-1 m-0">GitHub API</h4>
-  <p class="mb-5">GitHub provides a way to request and interact with data on its platform. This makes it possible to use GitHub data in your application. For example, you can see all your favorite GitHub projects or show what code you are working. This interaction is done through a interface called an API. We provided examples of using GitHub's API to help you get started.</a>
+  <p class="mb-5">GitHub provides a way to request and interact with data on its platform. This makes it possible to use GitHub data in your application. For example, you can see all your favorite GitHub projects or show what code you are working. This interaction is done through a interface called an API. We provided examples of using GitHub's API to help you get started.</p>
 
   <div class="border rounded p-5 mb-5">
     <h5 class="py-1 m-0">Retrieving your starred projects</h5>
@@ -43,8 +43,10 @@
     <p class="mt-4">As a result, you should be able to search for GitHub projects below:</p>
     <div class="text-center mx-auto mb-3">
       <form action="{{ url_for('tutorial.contribute') }}" method="get" class="d-flex">
-        <input name="query" class="form-control form-control-sm" value="{{ query }}" placeholder="Search for repos" />
-        <button type="submit" class="btn btn-primary btn-sm ml-1">Search</button>
+          <label>
+              <input name="query" class="form-control form-control-sm" value="{{ query }}" placeholder="Search for repos" />
+          </label>
+          <button type="submit" class="btn btn-primary btn-sm ml-1">Search</button>
       </form>
     </div>
 
