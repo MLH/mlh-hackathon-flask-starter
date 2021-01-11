@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import functools, json, requests
-import pdb
 
 from flask import flash, redirect, render_template, request
 from flask import Blueprint, session, url_for, g
@@ -33,7 +32,7 @@ def githubCallback():
 
     session['access_token'] = access_token
     session['user_id'] = user.id
-    pdb.set_trace()
+
     return redirect(url_for('home.index'))
 
 @blueprint.route('/logout')
