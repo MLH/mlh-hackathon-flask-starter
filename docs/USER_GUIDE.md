@@ -146,7 +146,7 @@ To use this authentication technique you need to create a new GitHub OAuth app. 
 
 ## Fetching Data
 
-This project uses Python's `[requests](http://docs.python-requests.org/en/master/)` package to make HTTP requests. An example request in your terminal will look like this:
+This project uses Python's [requests](http://docs.python-requests.org/en/master/) package to make HTTP requests. An example request in your terminal will look like this:
 
 ```
 $ python
