@@ -17,7 +17,7 @@ class User(db.Model):
     @staticmethod
     def find_or_create_from_token(access_token):
         data = GitHub.get_user_from_token(access_token)
-
+        print(data)
         """Find existing user or create new User instance"""
         instance = User.query.filter_by(username=data['login']).first()
 
