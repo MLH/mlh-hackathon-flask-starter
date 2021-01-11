@@ -48,9 +48,7 @@ The default port for Flask apps is `5000`, but you may need to update this if yo
 
 You need to be able to connect to a database either on your own computer (locally) or through a hosted database. You can [install Postgres locally](http://www.postgresqltutorial.com/install-postgresql/) and [connect to it](http://www.postgresqltutorial.com/connect-to-postgresql-database/) to provide the database for your app.
 
-Learn more about the [connection URL format](https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format).
-
-You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Here is an example:
+You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Learn more about the [connection URL format](https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format). Here is an example:
 
 ```
 postgresql://localhost:5432/mlh-hackathon-starter-flask
@@ -160,7 +158,7 @@ $ python
 
 These type of requests can be made inside of your controllers to fetch and store data for your application. For example, you might make a request to GitHub's API and display it directly in HTML. Depending on your needs, you can also store this data to your database to use later.
 
-To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/app/controllers/github.py).
+To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://hackathon-starter-python.herokuapp.com/guides/requesting).
 
 ## Static Files
 
