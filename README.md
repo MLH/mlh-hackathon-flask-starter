@@ -54,7 +54,7 @@ The default port for Flask apps is `5000`, but you may need to update this if yo
 
 You need to be able to connect to a database either on your own computer (locally) or through a hosted database. You can [install Postgres locally](http://www.postgresqltutorial.com/install-postgresql/) and [connect to it](http://www.postgresqltutorial.com/connect-to-postgresql-database/) to provide the database for your app.
 
-You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Learn more about the [connection URL format](https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format). Here is an example:
+You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Learn more about the [connection URL format](http://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format). Here is an example:
 
 ```
 postgresql://localhost:5432/mlh-hackathon-starter-flask
