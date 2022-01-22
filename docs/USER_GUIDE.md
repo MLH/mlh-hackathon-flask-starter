@@ -39,7 +39,7 @@ Next, we need to install the project dependencies, which are listed in `requirem
 Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback URL, which should be something like:
 
 ```
-https://localhost:5000/auth/callback/github
+http://localhost:5000/auth/callback/github
 ```
 
 The default port for Flask apps is `5000`, but you may need to update this if your setup uses a different port or if you're hosting your app somewhere besides your local machine.
@@ -48,7 +48,7 @@ The default port for Flask apps is `5000`, but you may need to update this if yo
 
 You need to be able to connect to a database either on your own computer (locally) or through a hosted database. You can [install Postgres locally](http://www.postgresqltutorial.com/install-postgresql/) and [connect to it](http://www.postgresqltutorial.com/connect-to-postgresql-database/) to provide the database for your app.
 
-You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Here is an example:
+You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Learn more about the [connection URL format](http://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format). Here is an example:
 
 ```
 postgresql://localhost:5432/mlh-hackathon-starter-flask
@@ -158,7 +158,7 @@ $ python
 
 These type of requests can be made inside of your controllers to fetch and store data for your application. For example, you might make a request to GitHub's API and display it directly in HTML. Depending on your needs, you can also store this data to your database to use later.
 
-To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/app/controllers/github.py).
+To make things simple, we provide a service for GitHub-related requests, which will handle user authentication. Here is that [service in action](https://hackathon-starter-python.herokuapp.com/guides/requesting).
 
 ## Static Files
 
@@ -210,8 +210,8 @@ This project uses a GitHub OAuth app for Authentication and uses GitHub's API. T
 1. Register an account on Github.com.
 2. Visit the [GitHub OAuth apps page](https://github.com/settings/developers).
 3. Create a new OAuth app.
-   - Enter an application name and a homepage URL.
-   - Add callback URL, use http://localhost:5000/ for local development.
+   - Enter an application name and a homepage URL. Use homepage URL of http://localhost:5000 for local development.
+   - Add callback URL, use http://localhost:5000/auth/callback/github for local development.
    - Click 'Register application'.
 4. Add your GitHub credentials to your environment variables in `.env`.
    - Replace `[INSERT_CLIENT_ID]` with your GitHub Client ID.
