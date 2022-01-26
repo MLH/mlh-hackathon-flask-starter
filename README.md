@@ -57,8 +57,10 @@ You need to be able to connect to a database either on your own computer (locall
 You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Learn more about the [connection URL format](http://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format). Here is an example:
 
 ```
-postgresql://localhost:5432/mlh-hackathon-starter-flask
+postgresql://Username:password@localhost:5432/mlh-hackathon-starter-flask
+
 ```
+Here the credentials are of pg admin username and password.
 
 **Step 5: Update environment variables and run the Server.**
 
